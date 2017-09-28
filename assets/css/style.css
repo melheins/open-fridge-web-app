@@ -1,3 +1,10 @@
+
+body {
+	background-image: url("../images/yellow-fridge.jpg");
+	background-size: cover;
+}
+
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -284,3 +291,4 @@ a.pure-button-primary {
         font-size: 300%;
     }
 }
+
