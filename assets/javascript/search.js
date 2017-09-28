@@ -36,6 +36,13 @@ $(document).ready(function() {
             $("#ingredient-input").addClass('error-text')
         }
     });
+    $(document).on("keyup", "#ingredient-input" , function () {
+        // if enter key hit
+        if (event.which === 13) {
+            //run search
+            $("#add-ingredient").click();
+        }
+    });
     //Update List with firebase data
     ingredientDB.on('child_added', function(snapshot) {
         //Get value from Firebase
@@ -43,12 +50,14 @@ $(document).ready(function() {
         //Push to array
         currentList.push(value)  ;
         //get name from firebase
-        var name = snapshot.name;
+        var key = snapshot.key;
         //Create list item with remove button and append
         //button
         var removeButton = $("<button>");
         removeButton.addClass('remove');
-        removeButton.attr('id', name);
+        removeButton.attr('data-key', key);
+        removeButton.attr('data-item');
+        console.log(name);
         removeButton.text('x');
         // List Item
         var li = $("<li>");
@@ -61,5 +70,20 @@ $(document).ready(function() {
         console.log(currentList)
     });
 
+    //Remove item from list
+    //on click
+    $(document).click('.remove', function (event) {
+        //get value from clicked element
+        var clicked = event.target;
+        var removeKey = $(clicked).attr('data-key');
+        console.log(removeKey);
+        //remove from firebase
+        ingredientDB.child(removeKey).remove();
+        clicked.closest('li').remove();
+        var removeItem = $(clicked).attr('data-item');
+        var removeIndex = currentList.indexOf(removeItem);
+        currentList.splice($.inArray(removeItem, currentList ), 1)
+        //remove item from db
+    });
 
 });
