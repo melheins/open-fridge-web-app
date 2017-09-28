@@ -14,37 +14,30 @@ $(document).ready(function() {
 
     var db = firebase.database();
 
-    var ingredientDB = db.ref('/ingredients');
-    var currentList = [];
+/*Add List*/
+    $("#ingredient-list").click(function(){
+        event.preventDefault();
 
+        var list = $("#ingredient-list").val();
+        db.ref('/list').push(list);
+        $("ingredient-list").val("")
+    }
 
     //Add Ingredient
     $("#add-ingredient").click(function () {
         event.preventDefault();
 
-        //Get user input
         var ingredient = $("#ingredient-input").val();
-        //If field is not empty,
-        console.log(currentList.indexOf(ingredient));
-        if (ingredient && currentList.indexOf(ingredient) < 0){
-            //Push to ingredients list
-            ingredientDB.push(ingredient);
-            //Clear input
-            $("#ingredient-input").val(" ");
-        }
-        else if (currentList.indexOf(ingredient) >= 0){
-            $("#ingredient-input").addClass('error')
-        }
-        else {
-            $("#ingredient-input").addClass('error-text')
-        }
+        db.ref('/ingredients').push(ingredient);
+
+        $("#ingredient-input").val(" ");
+
     });
     //Update List with firebase data
-    ingredientDB.on('child_added', function(snapshot) {
+    firebase.database().ref('/ingredients').on('child_added', function(snapshot) {
+        console.log(snapshot.val());
         //Get value from Firebase
         var value = snapshot.val();
-        //Push to array
-        currentList.push(value)  ;
         //get name from firebase
         var name = snapshot.name;
         //Create list item with remove button and append
@@ -62,7 +55,5 @@ $(document).ready(function() {
         $("#ingredient-list").append(li)
 
 
-        console.log(currentList)
     });
-
 });
