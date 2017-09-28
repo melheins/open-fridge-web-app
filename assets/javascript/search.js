@@ -13,12 +13,15 @@ $(document).ready(function() {
     firebase.initializeApp(config);
 
     var db = firebase.database();
+
     var ingredientDB = db.ref('/ingredients');
     var currentList = [];
+
 
     //Add Ingredient
     $("#add-ingredient").click(function () {
         event.preventDefault();
+
         //Get user input
         var ingredient = $("#ingredient-input").val();
         //If field is not empty,
@@ -67,8 +70,10 @@ $(document).ready(function() {
         li.append(value);
         $("#ingredient-list").append(li)
 
+
         console.log(currentList)
     });
+
 
     //Remove item from list
     //on click
@@ -85,5 +90,6 @@ $(document).ready(function() {
         currentList.splice($.inArray(removeItem, currentList ), 1)
         //remove item from db
     });
+
 
 });

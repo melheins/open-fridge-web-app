@@ -15,24 +15,39 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
     <!-- Link to My CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
+
     <!-- Link to Firebase -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+
     <!-- Link to jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a href="index.html" class="pure-menu-heading">Open Fridge</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item" id="profile"><a href="profile.html" class="pure-menu-link">Profile</a></li>
+        </ul>
+    </div>
+</div>
 <div class="container">
     <div>
-        <input type="text" id="ingredient-input">
-        <button id="add-ingredient">add</button>
+        <div id="ingredient-input-section">
+            <input type="text" id="ingredient-input">
+            <button id="add-ingredient" class="button">add</button>
+            <div id="input-error-text" class="error-text"></div>
+        </div>
         <br><br>
 
-        Ingredient List:
+        <div id="ingredient-list-section">Ingredient List:
 
-        <ul id="ingredient-list" style="list-style: none">
+            <ul id="ingredient-list" style="list-style: none">
+            </ul>
+        </div>
 
-        </ul>
     </div>
 </div>
 <footer class="footer">
