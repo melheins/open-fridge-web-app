@@ -4,6 +4,14 @@ body {
 	background-size: cover;
 }
 
+.main-body {
+	    margin-top: 60px;
+}
+
+footer {
+	text-align: center;
+}
+
 
 * {
     -webkit-box-sizing: border-box;
