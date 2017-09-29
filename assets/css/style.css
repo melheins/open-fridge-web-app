@@ -10,7 +10,7 @@
 }
 
 .home-menu {
-    background: #2d3e50;
+    background: #111;
 }
 
 .pure-menu.pure-menu-fixed {
@@ -24,6 +24,7 @@
     color: white;
     font-weight: 400;
     font-size: 120%;
+    font-family: 'Sonsie One', cursive;
 }
 
 .home-menu .pure-menu-selected a {
