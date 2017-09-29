@@ -1,15 +1,11 @@
 
 body {
-	background-image: url("../images/yellow-fridge.jpg");
+	background-image: url("../images/yellow-fridge2.jpg");
 	background-size: cover;
 }
 
 .main-body {
     margin-top: 60px;
-}
-
-.header {
-	background-color: : #111;
 }
 
 
@@ -111,7 +107,8 @@ a.pure-button-primary {
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
 .home-menu {
-    background: #2d3e50;
+    background: #111;
+    font-family: font-family: 'Sonsie One', cursive;
 }
 .pure-menu.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
