@@ -3,15 +3,30 @@ body {
 	background-image: url("../images/yellow-fridge2.jpg");
 	background-size: cover;
 	font-family: 'Shadows Into Light', cursive;
+	background-attachment: fixed;
 }
 
 .main-body {
-    margin-top: 60px;
+    margin-top: 100px;
+    text-align: center;
 }
 
 #get-started {
 	color: white;
     margin-left: 270px;
+    font-size: 45px;
+}
+
+#ingredient-list-section {
+	color: white;
+}
+
+.ingredient {
+	letter-spacing: 2px;
+}
+
+.pure-menu-link {
+	color: #feb83f;
 }
 
 * {
@@ -24,11 +39,7 @@ body {
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
  */
-body {
-    line-height: 1.7em;
-    color: #7f8c8d;
-    font-size: 13px;
-}
+
 
 h1,
 h2,
@@ -37,7 +48,7 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+    color: white;
 }
 
 .pure-img-responsive {
@@ -132,9 +143,6 @@ a.pure-button-primary {
     color: white;
 }
 
-.home-menu a {
-    color: #6FBEF3;
-}
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
