@@ -57,11 +57,11 @@ $(document).ready(function() {
         //Create list item with remove button and append
         //button
         var removeButton = $("<button>");
-        removeButton.addClass('remove');
+        removeButton.addClass('remove pure-button');
         removeButton.attr('data-key', key);
         removeButton.attr('data-item');
         console.log(name);
-        removeButton.text('x');
+        removeButton.html("<i class='fa fa-times' aria-hidden='true'></i>");
         // List Item
         var li = $("<li>");
         li.addClass('ingredient');
