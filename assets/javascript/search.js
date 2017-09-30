@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyANkZ57CA6LXADMNJJakfABMdHj8fR7ZuY",
@@ -10,85 +9,69 @@ $(document).ready(function() {
         messagingSenderId: "906230734866"
     };
     firebase.initializeApp(config);
-
     var db = firebase.database();
-
     var ingredientDB = db.ref('/ingredients');
-    var currentList = [];
-
-
-    //Add Ingredient
-    $("#add-ingredient").click(function () {
-        event.preventDefault();
-
-        //Get user input
-        var ingredient = $("#ingredient-input").val();
-        //If field is not empty,
-        console.log(currentList.indexOf(ingredient));
-        if (ingredient && currentList.indexOf(ingredient) < 0){
-            //Push to ingredients list
-            ingredientDB.push(ingredient);
-            //Clear input
-            $("#ingredient-input").val(" ");
-        }
-        else if (currentList.indexOf(ingredient) >= 0){
-            $("#ingredient-input").addClass('error')
-        }
-        else {
-            $("#ingredient-input").addClass('error-text')
-        }
-    });
-    $(document).on("keyup", "#ingredient-input" , function () {
-        // if enter key hit
-        if (event.which === 13) {
-            //run search
-            $("#add-ingredient").click();
-        }
-    });
-    //Update List with firebase data
+    //Set up ajax vars
+    var apiKey = '102569c9def8a54e1e0e5b606c853753';
+    var queryURL = 'http://food2fork.com/api/search?key=';
+    //Push contents of ingredients list to array
+    var array = [];
+    //pull from Firebase
     ingredientDB.on('child_added', function(snapshot) {
-        //Get value from Firebase
-        var value = snapshot.val();
-        //Push to array
-        currentList.push(value)  ;
-        //get name from firebase
-        var key = snapshot.key;
-        //Create list item with remove button and append
-        //button
-        var removeButton = $("<button>");
-        removeButton.addClass('remove');
-        removeButton.attr('data-key', key);
-        removeButton.attr('data-item');
-        console.log(name);
-        removeButton.text('x');
-        // List Item
-        var li = $("<li>");
-        li.addClass('ingredient');
-        //append
-        li.append(removeButton);
-        li.append(value);
-        $("#ingredient-list").append(li)
-
-
-        console.log(currentList)
+        var val = snapshot.val();
+        array.push(val);
     });
+    // turn in to string
+    var query = array.join(",");
+    //Determine which results to display:
+    var startAt = 0;
+    var endAt = 9;
+    //get results
+    function searchResults () {
+        $.ajax({
+            //parameters
+            type: 'GET',
+            url: queryURL + apiKey,
+            q: query,
+            dataType: 'json',
+            // once results received
+            success: function(response) {
+                console.log(response);
+                //clear table
+                $('#recipe-table-body').empty();
+                for (var i = startAt; i <= endAt; i++) {
+                    //Get recipe info
+                    var current = response.recipes[i];
+                    var recipeID = current;
+                    //Write to DOM
+                    var newRow = $("<tr>");
+                    var newData = $("<td>");
+                    var newLink = $("<a>");
+                    var newImage = $("<img>");
+                    //title
+                    var title = current.title;
+                    //image
+                    newImage.attr("src", current.image_url);
+                    newImage.attr("height", "50");
+                    newImage.attr("alt", title);
+                    //Source
+                    var source = current.source;
+                    //More info
+                    newLink.attr("href", )
+                    //append
+                    newData.append(newImage, title, source);
+                    newRow.append(newData);
+                    $('#recipe-table-body').append(newRow)
+                }
+            },
+            error: function(error) {
+                console.log(error)
+            }
+        })
+    }
 
+    searchResults();
 
-    //Remove item from list
-    //on click
-    $(document).click('.remove', function (event) {
-        //get value from clicked element
-        var clicked = event.target;
-        var removeKey = $(clicked).attr('data-key');
-        console.log(removeKey);
-        //remove from firebase
-        ingredientDB.child(removeKey).remove();
-        clicked.closest('li').remove();
-        var removeItem = $(clicked).attr('data-item');
-        var removeIndex = currentList.indexOf(removeItem);
-        currentList.splice($.inArray(removeItem, currentList ), 1)
-        //remove item from db
-    });
 
 
 });
