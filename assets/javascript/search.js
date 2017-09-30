@@ -11,9 +11,8 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     var db = firebase.database();
     var ingredientDB = db.ref('/ingredients');
-    //Set up ajax vars
+    //Set up ajax api
     var apiKey = '102569c9def8a54e1e0e5b606c853753';
-    var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=';
     //Push contents of ingredients list to array
     var array = [];
     //pull from Firebase
@@ -28,6 +27,7 @@ $(document).ready(function() {
     var endAt = 9;
     //get results
     function searchResults () {
+        var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=';
         $.ajax({
             //parameters
             type: 'GET',
@@ -42,26 +42,49 @@ $(document).ready(function() {
                 for (var i = startAt; i <= endAt; i++) {
                     //Get recipe info
                     var current = response.recipes[i];
-                    var recipeID = current;
+                    var recipeID = current.recipe_id;
                     //Write to DOM
                     var newRow = $("<tr>");
                     var newData = $("<td>");
-                    var newLink = $("<a>");
-                    var newImage = $("<img>");
+                    var newDiv =  $("<div>");
                     //title
                     var title = current.title;
                     //image
+                    var newImage = $("<img>");
                     newImage.attr("src", current.image_url);
                     newImage.attr("height", "50");
                     newImage.attr("alt", title);
                     //Source
-                    var source = current.source;
-                    //More info
-                    newLink.attr("href", )
-                    //append
-                    newData.append(newImage, title, source);
+                    var sourceLink = $("<a>");
+                    sourceLink.attr("href", current.source_url);
+                    sourceLink.text(current.publisher);
+                    //ingredients
+                    var ingredientLink = $("<a>");
+                    ingredientLink.attr("href", recipeID);
+                    ingredientLink.attr("rel", "modal-open");
+                    ingredientLink.text("Ingredients");
+                    newData.append(sourceLink);
                     newRow.append(newData);
-                    $('#recipe-table-body').append(newRow)
+                    //append
+                    newData.append(newImage, title, sourceLink, ingredientLink);
+                    newRow.append(newData);
+                    $('#recipe-table-body').append(newRow);
+                    //set up modal
+                    var recipeURL = 'https://gtproxy2.herokuapp.com/api/food2fork/get?&key=';
+                    var addon = "&rid=";
+                    $.ajax({
+                        //parameters
+                        type: 'GET',
+                        url: recipeURL + apiKey + addon + recipeID,
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log(response);
+                            console.log( recipeURL + apiKey + addon + recipeID);
+                        },
+                        error: function(error) {
+                            console.log(error)
+                        }
+                    })
                 }
             },
             error: function(error) {
