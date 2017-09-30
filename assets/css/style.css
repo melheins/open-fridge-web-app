@@ -187,7 +187,9 @@ body {
 }
 
 .main-body {
-    margin-top: 60px;
+    margin-top: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 h1,
@@ -244,3 +246,19 @@ label {
 
 }
 
+/***** MEL UPDATES***/
+.profile-menu {
+    position: fixed;
+    background-color: #fff;
+    right: 8px;
+    width:240px;
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.remove {
+    margin-right: 8px;
+}
