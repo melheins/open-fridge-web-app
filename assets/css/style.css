@@ -123,8 +123,11 @@ label {
 /***** MEL UPDATES***/
 .profile-menu {
     position: fixed;
-    background-color: white;
+    background-color: #fff;
     right: 8px;
+    width:240px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hidden {
