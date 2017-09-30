@@ -126,10 +126,13 @@ label {
     background-color: #fff;
     right: 8px;
     width:240px;
-    pointer-events: none;
     z-index: 1;
 }
 
 .hidden {
     display: none;
+}
+
+.remove {
+    margin-right: 8px;
 }
