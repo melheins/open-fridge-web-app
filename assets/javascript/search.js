@@ -22,7 +22,7 @@ $(document).ready(function () {
         array.push(val);
     });
     // turn in to string
-    var query = array.join("+");
+    var query = array.join(",");
     //Determine which results to display:
     var startAt = 0;
     var endAt = 9;
@@ -42,18 +42,25 @@ $(document).ready(function () {
                 for (var i = startAt; i <= endAt; i++) {
                     //Get recipe info
                     var current = response.recipes[i];
+                    var recipeID = current;
                     //Write to DOM
                     var newRow = $("<tr>");
                     var newData = $("<td>");
+                    var newLink = $("<a>");
+                    var newImage = $("<img>");
                     //title
-                    newData.text(current.title);
+                    var title = current.title;
+                    //image
+                    newImage.attr("src", current.image_url);
+                    newImage.attr("height", "50");
+                    newImage.attr("alt", title);
+                    //Source
+                    var source = current.source;
+                    //More info
+                    newLink.attr("href", )
+                    //append
+                    newData.append(newImage, title, source);
                     newRow.append(newData);
-                    //source
-                    newData = $("<td>");
-                    newData.text(current.publisher);
-                    newRow.append(newData);
-                    //
-
                     $('#recipe-table-body').append(newRow)
                 }
             },
