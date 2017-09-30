@@ -13,7 +13,7 @@ $(document).ready(function() {
     var ingredientDB = db.ref('/ingredients');
     //Set up ajax vars
     var apiKey = '102569c9def8a54e1e0e5b606c853753';
-    var queryURL = 'https://food2fork.com/api/search?key=';
+    var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=';
     //Push contents of ingredients list to array
     var array = [];
     //pull from Firebase
