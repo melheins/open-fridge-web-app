@@ -31,6 +31,17 @@ body {
 	color: #feb83f;
 }
 
+#recipe-table {
+    text-align: left;
+    display: block;
+    margin: auto;
+    width: 30%;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+}
+
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
