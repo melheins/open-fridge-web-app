@@ -1,8 +1,130 @@
+<<<<<<< HEAD
+
+body {
+	background-image: url("../images/yellow-fridge2.jpg");
+	background-size: cover;
+	font-family: 'Shadows Into Light', cursive;
+	background-attachment: fixed;
+}
+
+.main-body {
+    margin-top: 100px;
+    text-align: center;
+}
+
+#get-started {
+	color: white;
+    margin-left: 270px;
+    font-size: 45px;
+}
+
+#ingredient-list-section {
+	color: white;
+}
+
+.ingredient {
+	letter-spacing: 2px;
+}
+
+.pure-menu-link {
+	color: #feb83f;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+ * -- BASE STYLES --
+ * Most of these are inherited from Base, but I want to change a few.
+ */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: white;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+
+
+/*
+ * -- PURE FORM STYLES --
+ * Style the form inputs and labels
+ */
+.pure-form label {
+    margin: 1em 0 0;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.pure-form input[type] {
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+/*
+ * -- PURE BUTTON STYLES --
+ * I want my pure-button elements to look a little different
+ */
+.pure-button {
+    background-color: #1f8dd6;
+    color: white;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+}
+
+a.pure-button-primary {
+    background: white;
+    color: #1f8dd6;
+    border-radius: 5px;
+    font-size: 120%;
+}
+
+
+/*
+ * -- MENU STYLES --
+ * I want to customize how my .pure-menu looks at the top of the page
+ */
+
+=======
 /**** BEGIN HEADER STYLING ****/
 .header {
     background-color: #111;
 }
 
+>>>>>>> 98c8114b1e85cb32c7399e89350297d06d15a8f6
 .home-menu {
     padding: 0.5em;
     text-align: center;
@@ -31,10 +153,13 @@
     color: white;
 }
 
+<<<<<<< HEAD
+=======
 .home-menu a {
     color: #6FBEF3;
 }
 
+>>>>>>> 98c8114b1e85cb32c7399e89350297d06d15a8f6
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
@@ -126,10 +251,13 @@ label {
     background-color: #fff;
     right: 8px;
     width:240px;
-    pointer-events: none;
     z-index: 1;
 }
 
 .hidden {
     display: none;
+}
+
+.remove {
+    margin-right: 8px;
 }
