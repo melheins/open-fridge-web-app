@@ -14,29 +14,37 @@ $(document).ready(function() {
     //Set up ajax api
     var apiKey = '102569c9def8a54e1e0e5b606c853753';
     //Push contents of ingredients list to array
-    var array = [];
+    var qArray = [];
+    var queryJoin = "";
     //pull from Firebase
     ingredientDB.on('child_added', function(snapshot) {
         var val = snapshot.val();
-        array.push(val);
+        qArray.push(val);
+        console.log(qArray);
+        queryJoin = qArray.join();
     });
-    // turn in to string
-    var query = array.join(",");
     //Determine which results to display:
     var startAt = 0;
     var endAt = 9;
     //get results
-    function searchResults () {
-        var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=';
+    console.log(queryJoin);
+    var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=' + apiKey + "&q=" + queryJoin;
+
+    when
+    searchResults(queryURL);
+
+    function searchResults (url) {
+
         $.ajax({
             //parameters
             type: 'GET',
-            url: queryURL + apiKey,
-            q: query,
+            url: url,
             dataType: 'json',
             // once results received
             success: function(response) {
                 console.log(response);
+                console.log(queryURL);
+                console.log(queryJoin);
                 //clear table
                 $('#recipe-table-body').empty();
                 for (var i = startAt; i <= endAt; i++) {
@@ -79,7 +87,7 @@ $(document).ready(function() {
                         dataType: 'json',
                         success: function(response) {
                             console.log(response);
-                            console.log( recipeURL + apiKey + addon + recipeID);
+                            console.log(recipeURL + apiKey + addon + recipeID);
                         },
                         error: function(error) {
                             console.log(error)
@@ -93,7 +101,6 @@ $(document).ready(function() {
         })
     }
 
-    searchResults();
 
 
 
