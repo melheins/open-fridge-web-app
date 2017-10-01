@@ -1,5 +1,4 @@
-
-$(document).ready(function() {
+$(document).ready(function () {
 
     // Initialize Firebase
     var config = {
@@ -16,30 +15,111 @@ $(document).ready(function() {
 
     var ingredientDB = db.ref('/ingredients');
     var currentList = [];
+    var ingredient;
+    var stopAddFunction = false;
+    var displaySuggestionsModal = false;
 
+    // Close Ingredient List Modal if return to search button clicked.
+    $("#close-ingredient-suggestion-modal").click(function () {
+        $('.ingredient-suggestion-modal').addClass("hidden");
+    });
 
-    //Add Ingredient
-    $("#add-ingredient").click(function () {
-        event.preventDefault();
+    // Function to check the spelling of the users input
+    function spellChecker() {
+        var params = {
+            // Request parameters
+            "text": ingredient,
+            "mode": "proof",
+            "preContextText": "",
+            "postContextText": "",
+            "mkt": ""
+        };
+        $.ajax({
+            url: "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?" + $.param(params),
+            beforeSend: function (xhrObj) {
+                // Request headers
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "de4d1f4575bf4481a4930fb826e36707");
+            },
+            type: "GET",
+            // Request body
+            data: "json"
+        })
+            .done(function (response) {
+                console.log(response);
 
-        //Get user input
-        var ingredient = $("#ingredient-input").val();
-        //If field is not empty,
-        console.log(currentList.indexOf(ingredient));
-        if (ingredient && currentList.indexOf(ingredient) < 0){
+                if (response.flaggedTokens.length > 0) {
+
+                    var ingredientSuggestion = response.flaggedTokens[0].suggestions[0].suggestion;
+                    console.log(ingredientSuggestion);
+
+                    $('#ingredient-suggestion').append(ingredientSuggestion);
+
+                    $('.ingredient-suggestion-modal').toggleClass("hidden");
+                }
+                else {
+                    addIngredient();
+                }
+            });
+    }
+
+    // Function to add the ingredient to the firebase database
+    function addIngredient() {
+        if (ingredient && currentList.indexOf(ingredient) < 0) {
             //Push to ingredients list
             ingredientDB.push(ingredient);
             //Clear input
             $("#ingredient-input").val(" ");
         }
-        else if (currentList.indexOf(ingredient) >= 0){
+        else if (currentList.indexOf(ingredient) >= 0) {
             $("#ingredient-input").addClass('error')
         }
         else {
             $("#ingredient-input").addClass('error-text')
         }
+    }
+
+    //Om click Add Ingredient button
+    $("#add-ingredient").click(function () {
+        event.preventDefault();
+
+        //Get user input
+        ingredient = $("#ingredient-input").val();
+        //If field is not empty,
+        console.log(ingredient);
+        console.log(currentList.indexOf(ingredient));
+
+        if (typeof ingredient === 'undefined' || !ingredient) {
+            console.log("null");
+            stopAddFunction = true;
+        }
+        // Call function to check spelling of user's input
+        if (stopAddFunction === false) {
+            spellChecker();
+        }
     });
-    $(document).on("keyup", "#ingredient-input" , function () {
+
+    //Om click Suggestion Modal Add Ingredient button
+    $("#add-ingredient-suggestion").click(function () {
+        event.preventDefault();
+
+        //Get user input
+        ingredient = $("#ingredient-suggestion");
+        //If field is not empty,
+        console.log(ingredient);
+        console.log(currentList.indexOf(ingredient));
+
+        if (typeof ingredient === 'undefined' || !ingredient) {
+            console.log("null");
+            stopAddFunction = true;
+        }
+        // Call function to add ingredient to list
+        if (stopAddFunction === false) {
+            addIngredient();
+        }
+    });
+
+
+    $(document).on("keyup", "#ingredient-input", function () {
         // if enter key hit
         if (event.which === 13) {
             //run search
@@ -47,11 +127,11 @@ $(document).ready(function() {
         }
     });
     //Update List with firebase data
-    ingredientDB.on('child_added', function(snapshot) {
+    ingredientDB.on('child_added', function (snapshot) {
         //Get value from Firebase
         var value = snapshot.val();
         //Push to array
-        currentList.push(value)  ;
+        currentList.push(value);
         //get name from firebase
         var key = snapshot.key;
         //Create list item with remove button and append
@@ -68,18 +148,19 @@ $(document).ready(function() {
         //append
         li.append(removeButton);
         li.append(value);
-        $("#ingredient-list").append(li)
+        $("#ingredient-list").append(li);
 
 
-        console.log(currentList)
+        console.log(currentList);
     });
     //on click
-    $(document).click('.remove', function (event) {
-        //determine what element was clicked
-        var clicked = event.target;
+    //$(document).click('.remove', function (event) {
+    $('ul#ingredient-list').on("click", ".remove", function (event) {
         //Retrieve data
-        var removeKey = $(clicked).attr('data-key');
-        var removeItem = $(clicked).attr('data-item');
+        var removeKey = $(this).attr('data-key');
+        var removeItem = $(this).attr('data-item');
+        console.log(removeKey);
+        console.log(removeItem);
         //remove from firebase
         ingredientDB.child(removeKey).remove();
         //Remove li
