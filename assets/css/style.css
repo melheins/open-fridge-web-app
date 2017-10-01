@@ -270,10 +270,16 @@ label {
     z-index: 1;
 }
 
+.modal-bg {
+    background-color: #fff;
+    z-index: 1;
+}
+
 .hidden {
     display: none;
 }
 
 .remove {
     margin-right: 8px;
+    padding: .5em 1em;
 }
