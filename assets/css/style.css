@@ -1,15 +1,40 @@
-<<<<<<< HEAD
-
+/*** BEGIN MAIN CONTENT STYLING ****/
 body {
-	background-image: url("../images/yellow-fridge2.jpg");
-	background-size: cover;
-	font-family: 'Shadows Into Light', cursive;
-	background-attachment: fixed;
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 13px;
+    background-image: url("../images/yellow-fridge.jpg");
+    background-size: cover;
+    font-family: 'Shadows Into Light', cursive;
+    background-attachment: fixed;
 }
 
 .main-body {
-    margin-top: 100px;
+    margin-top: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
 }
 
 #get-started {
@@ -34,76 +59,10 @@ body {
 #recipe-table {
     text-align: left;
     display: block;
-    margin: auto;
-    width: 30%;
+    margin-left: 654px;
     color: white;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
-}
-
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-/*
- * -- BASE STYLES --
- * Most of these are inherited from Base, but I want to change a few.
- */
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-    color: white;
-}
-
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
-/*
- * -- LAYOUT STYLES --
- * These are some useful classes which I will need
- */
-.l-box {
-    padding: 1em;
-}
-
-.l-box-lrg {
-    padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.is-center {
-    text-align: center;
-}
-
-
-
-/*
- * -- PURE FORM STYLES --
- * Style the form inputs and labels
- */
-.pure-form label {
-    margin: 1em 0 0;
-    font-weight: bold;
-    font-size: 100%;
-}
-
-.pure-form input[type] {
-    border: 2px solid #ddd;
-    box-shadow: none;
-    font-size: 100%;
-    width: 100%;
-    margin-bottom: 1em;
 }
 
 /*
@@ -115,6 +74,7 @@ label {
     color: white;
     border-radius: 5px;
     text-shadow: rgba(255,255,255,.5) 0 1px 0;
+    font-family: 'Shadows Into Light', cursive;
 
     box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
     -webkit-transition: all 0.3s linear;
@@ -132,33 +92,15 @@ label {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
 }
 
-a.pure-button-primary {
-    background: white;
-    color: #1f8dd6;
-    border-radius: 5px;
-    font-size: 120%;
-}
-
-
-/*
- * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
- */
-
-=======
 /**** BEGIN HEADER STYLING ****/
 .header {
     background-color: #111;
 }
 
->>>>>>> 98c8114b1e85cb32c7399e89350297d06d15a8f6
 .home-menu {
     padding: 0.5em;
     text-align: center;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
-}
-
-.home-menu {
     background: #111;
 }
 
@@ -180,13 +122,10 @@ a.pure-button-primary {
     color: white;
 }
 
-<<<<<<< HEAD
-=======
 .home-menu a {
     color: #6FBEF3;
 }
 
->>>>>>> 98c8114b1e85cb32c7399e89350297d06d15a8f6
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
@@ -201,42 +140,6 @@ a.pure-button-primary {
     bottom: 0;
     width: 100%;
     text-align: center;
-}
-
-/*** BEGIN MAIN CONTENT STYLING ****/
-body {
-    line-height: 1.7em;
-    color: #7f8c8d;
-    font-size: 13px;
-    background-image: url("../images/yellow-fridge.jpg");
-    background-size: cover;
-}
-
-.main-body {
-    margin-top: 70px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-    color: #34495e;
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
 }
 
 /*
