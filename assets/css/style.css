@@ -6,6 +6,7 @@ body {
     background-image: url("../images/yellow-fridge.jpg");
     background-size: cover;
     font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
     background-attachment: fixed;
 }
 
@@ -75,6 +76,7 @@ label {
     border-radius: 5px;
     text-shadow: rgba(255,255,255,.5) 0 1px 0;
     font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
 
     box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
     -webkit-transition: all 0.3s linear;
@@ -114,8 +116,8 @@ label {
 .home-menu .pure-menu-heading {
     color: white;
     font-weight: 400;
-    font-size: 120%;
-    font-family: 'Lobster Two', cursive;
+    font-size: 150%;
+    font-family: 'Racing Sans One', cursive;
 }
 
 .home-menu .pure-menu-selected a {
