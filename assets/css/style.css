@@ -10,7 +10,7 @@ body {
 }
 
 .main-body {
-    margin-top: 70px;
+    margin-top: 100px;
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
@@ -71,7 +71,7 @@ label {
  */
 .pure-button {
     background-color: #1f8dd6;
-    color: white;
+    color: #8b8683;
     border-radius: 5px;
     text-shadow: rgba(255,255,255,.5) 0 1px 0;
     font-family: 'Shadows Into Light', cursive;
@@ -131,6 +131,11 @@ label {
     background: none;
     border: none;
     color: #AECFE5;
+}
+
+.form-control {
+    width: 400px;
+    margin-left: 555px;
 }
 
 /*** BEGIN FOOTER STYLING ***/
