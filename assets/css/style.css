@@ -3,7 +3,7 @@ body {
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 13px;
-    background-image: url("../images/yellow-fridge.jpg");
+    background-image: url("../images/yellow-fridge-desktop.png");
     background-size: cover;
     font-family: 'Shadows Into Light', cursive;
     font-weight: bold;
@@ -33,6 +33,10 @@ label {
     box-sizing: border-box;
 }
 
+.border-image {
+    border: 2px outset #dad4d4;
+}
+
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
@@ -41,7 +45,7 @@ label {
 #get-started {
 	color: white;
     font-size: 45px;
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Racing Sans One', cursive;
     background-color: #549ccc;
 }
 
@@ -149,6 +153,7 @@ label {
     text-align: center;
 }
 
+
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
@@ -182,6 +187,12 @@ label {
 
 }
 
+@media (max-width: 600px) {
+    body {
+        background-image: url("../images/yellow-fridge-mobile.png");
+    }
+}
+
 /***** MEL UPDATES***/
 .profile-menu {
     position: fixed;
@@ -202,5 +213,6 @@ label {
 
 .remove {
     margin-right: 8px;
+    font-size: 10px;
     padding: .5em 1em;
 }
