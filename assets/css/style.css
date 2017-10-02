@@ -41,7 +41,7 @@ label {
 #get-started {
 	color: white;
     font-size: 45px;
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Racing Sans One', cursive;
     background-color: #549ccc;
 }
 
@@ -197,4 +197,5 @@ label {
 
 .remove {
     margin-right: 8px;
+    font-size: 10px;
 }
