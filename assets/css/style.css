@@ -1,181 +1,3 @@
-<<<<<<< HEAD
-
-body {
-	background-image: url("../images/yellow-fridge2.jpg");
-	background-size: cover;
-	font-family: 'Shadows Into Light', cursive;
-	background-attachment: fixed;
-}
-
-.main-body {
-    margin-top: 100px;
-    text-align: center;
-}
-
-#get-started {
-	color: white;
-    margin-left: 270px;
-    font-size: 45px;
-}
-
-#ingredient-list-section {
-	color: white;
-}
-
-.ingredient {
-	letter-spacing: 2px;
-}
-
-.pure-menu-link {
-	color: #feb83f;
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-/*
- * -- BASE STYLES --
- * Most of these are inherited from Base, but I want to change a few.
- */
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-    color: white;
-}
-
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
-/*
- * -- LAYOUT STYLES --
- * These are some useful classes which I will need
- */
-.l-box {
-    padding: 1em;
-}
-
-.l-box-lrg {
-    padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.is-center {
-    text-align: center;
-}
-
-
-
-/*
- * -- PURE FORM STYLES --
- * Style the form inputs and labels
- */
-.pure-form label {
-    margin: 1em 0 0;
-    font-weight: bold;
-    font-size: 100%;
-}
-
-.pure-form input[type] {
-    border: 2px solid #ddd;
-    box-shadow: none;
-    font-size: 100%;
-    width: 100%;
-    margin-bottom: 1em;
-}
-
-/*
- * -- PURE BUTTON STYLES --
- * I want my pure-button elements to look a little different
- */
-.pure-button {
-    background-color: #1f8dd6;
-    color: white;
-    padding: 0.5em 2em;
-    border-radius: 5px;
-}
-
-a.pure-button-primary {
-    background: white;
-    color: #1f8dd6;
-    border-radius: 5px;
-    font-size: 120%;
-}
-
-
-/*
- * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
- */
-
-=======
-/**** BEGIN HEADER STYLING ****/
-.header {
-    background-color: #111;
-}
-
->>>>>>> 98c8114b1e85cb32c7399e89350297d06d15a8f6
-.home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
-}
-
-.home-menu {
-    background: #111;
-}
-
-.pure-menu.pure-menu-fixed {
-    /* Fixed menus normally have a border at the bottom. */
-    border-bottom: none;
-    /* I need a higher z-index here because of the scroll-over effect. */
-    z-index: 4;
-}
-
-.home-menu .pure-menu-heading {
-    color: white;
-    font-weight: 400;
-    font-size: 120%;
-    font-family: 'Sonsie One', cursive;
-}
-
-.home-menu .pure-menu-selected a {
-    color: white;
-}
-
-<<<<<<< HEAD
-=======
-.home-menu a {
-    color: #6FBEF3;
-}
-
->>>>>>> 98c8114b1e85cb32c7399e89350297d06d15a8f6
-.home-menu li a:hover,
-.home-menu li a:focus {
-    background: none;
-    border: none;
-    color: #AECFE5;
-}
-
-/*** BEGIN FOOTER STYLING ***/
-.footer {
-    background: #111;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
-
 /*** BEGIN MAIN CONTENT STYLING ****/
 body {
     line-height: 1.7em;
@@ -183,12 +5,16 @@ body {
     font-size: 13px;
     background-image: url("../images/yellow-fridge.jpg");
     background-size: cover;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    background-attachment: fixed;
 }
 
 .main-body {
-    margin-top: 70px;
+    margin-top: 100px;
     margin-left: 10px;
     margin-right: 10px;
+    text-align: center;
 }
 
 h1,
@@ -210,6 +36,117 @@ label {
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
+}
+
+#get-started {
+	color: white;
+    font-size: 45px;
+    font-family: 'Lobster Two', cursive;
+    background-color: #549ccc;
+}
+
+#ingredient-list-section {
+	color: white;
+}
+
+.ingredient {
+	letter-spacing: 2px;
+}
+
+.pure-menu-link {
+	color: #feb83f;
+}
+
+#recipe-table {
+    text-align: left;
+    display: block;
+    margin-left: 654px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+}
+
+/*
+ * -- PURE BUTTON STYLES --
+ * I want my pure-button elements to look a little different
+ */
+.pure-button {
+    background-color: #1f8dd6;
+    color: #8b8683;
+    border-radius: 5px;
+    text-shadow: rgba(255,255,255,.5) 0 1px 0;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+
+    box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.3s linear;
+     -khtml-transition: all 0.3s linear;
+       -moz-transition: all 0.3s linear;
+         -o-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+    background: rgb(238,238,238); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+    background: linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
+}
+
+/**** BEGIN HEADER STYLING ****/
+.header {
+    background-color: #111;
+}
+
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+    background: #111;
+}
+
+.pure-menu.pure-menu-fixed {
+    /* Fixed menus normally have a border at the bottom. */
+    border-bottom: none;
+    /* I need a higher z-index here because of the scroll-over effect. */
+    z-index: 4;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 150%;
+    font-family: 'Racing Sans One', cursive;
+}
+
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+
+.home-menu a {
+    color: #6FBEF3;
+}
+
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #AECFE5;
+}
+
+.form-control {
+    width: 400px;
+    margin-left: 555px;
+}
+
+/*** BEGIN FOOTER STYLING ***/
+.footer {
+    background: #111;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 /*
@@ -254,10 +191,16 @@ label {
     z-index: 1;
 }
 
+.modal-bg {
+    background-color: #fff;
+    z-index: 1;
+}
+
 .hidden {
     display: none;
 }
 
 .remove {
     margin-right: 8px;
+    padding: .5em 1em;
 }
