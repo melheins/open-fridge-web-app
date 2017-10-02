@@ -33,6 +33,10 @@ label {
     box-sizing: border-box;
 }
 
+.border-image {
+    border: 2px outset #dad4d4;
+}
+
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
@@ -148,6 +152,7 @@ label {
     width: 100%;
     text-align: center;
 }
+
 
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
