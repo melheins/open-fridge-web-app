@@ -54,7 +54,8 @@ label {
     color: white;
 }
 
-#ingredient-list {
+#ingredient-list,
+#user-display {
     list-style-type: none;
 }
 
@@ -74,6 +75,13 @@ label {
     font-family: 'Open Sans', sans-serif;
 }
 
+#login-form {
+    padding: 10px;
+}
+
+legend {
+    font-family: 'Racing Sans One', cursive;
+}
 
 /*
  * -- PURE BUTTON STYLES --
