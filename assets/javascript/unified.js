@@ -203,7 +203,7 @@ $(document).ready(function () {
                     $('.ingredient-suggestion-modal').toggleClass("hidden");
                 }
                 else {
-                    addIngredient();
+                    addIngredient(ingredient);
                 }
             });
     }
