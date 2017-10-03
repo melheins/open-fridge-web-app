@@ -54,7 +54,8 @@ label {
     color: white;
 }
 
-#ingredient-list {
+#ingredient-list,
+#user-display {
     list-style-type: none;
 }
 
