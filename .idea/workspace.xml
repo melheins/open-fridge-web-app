@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e9cffd6-15af-4bb9-9150-8679a37e3538" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/javascript/input.js" afterPath="$PROJECT_DIR$/assets/javascript/input.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/javascript/search.js" afterPath="$PROJECT_DIR$/assets/javascript/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main-input.html" afterPath="$PROJECT_DIR$/main-input.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search-results.html" afterPath="$PROJECT_DIR$/search-results.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,7 +23,7 @@
             <file leaf-file-name="main-input.html" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/main-input.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="376">
+                  <state relative-caret-position="1005">
                     <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
                     <folding />
                   </state>
@@ -45,7 +41,7 @@
             <file leaf-file-name="input.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/assets/javascript/input.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-1137">
+                  <state relative-caret-position="-610">
                     <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
                     <folding />
                   </state>
@@ -82,8 +78,8 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/javascript/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="125" column="9" lean-forward="false" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
+            <state relative-caret-position="578">
+              <caret line="129" column="45" lean-forward="false" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -131,8 +127,8 @@
         <option value="$PROJECT_DIR$/assets/javascript/jquery.modal.js" />
         <option value="$PROJECT_DIR$/search-results.html" />
         <option value="$PROJECT_DIR$/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/assets/javascript/search.js" />
         <option value="$PROJECT_DIR$/main-input.html" />
+        <option value="$PROJECT_DIR$/assets/javascript/search.js" />
       </list>
     </option>
   </component>
@@ -143,8 +139,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1050" />
-    <option name="width" value="877" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -244,7 +240,7 @@
       <workItem from="1506779698117" duration="1750000" />
       <workItem from="1506782329499" duration="11260000" />
       <workItem from="1506902777006" duration="11000" />
-      <workItem from="1506902868255" duration="18523000" />
+      <workItem from="1506902868255" duration="19433000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;initial javascript push&quot;">
       <created>1506548979604</created>
@@ -302,16 +298,23 @@
       <option name="project" value="LOCAL" />
       <updated>1506781470677</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="&quot;updated search and ingredient display&quot;">
+      <created>1506993904982</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1506993904982</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71943000" />
+    <option name="totallyTimeSpent" value="72853000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1050" y="0" width="877" height="1047" extended-state="0" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2775842" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -387,7 +390,8 @@
     <MESSAGE value="&quot;Added remove function&quot;" />
     <MESSAGE value="&quot;Added search function&quot;" />
     <MESSAGE value="&quot;changed script on input page&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;changed script on input page&quot;" />
+    <MESSAGE value="&quot;updated search and ingredient display&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;updated search and ingredient display&quot;" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -750,14 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/javascript/input.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1137">
-          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search-results.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="784">
@@ -784,16 +780,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main-input.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
+        <state relative-caret-position="1005">
           <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/javascript/input.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-610">
+          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/javascript/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="125" column="9" lean-forward="false" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
+        <state relative-caret-position="578">
+          <caret line="129" column="45" lean-forward="false" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
           <folding />
         </state>
       </provider>

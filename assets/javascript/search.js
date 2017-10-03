@@ -71,11 +71,13 @@ $(document).ready(function() {
                 //Source
                 var sourceLink = $('<a>');
                 sourceLink.attr('href', current.source_url);
+                sourceLink.attr('target', '_blank');
                 sourceLink.text(current.publisher);
                 //ingredients
                 var ingredientLink = $('<a>');
                 ingredientLink.attr('href', recipeID);
                 ingredientLink.text('Ingredients');
+                ingredientLink.attr('data-url', current.source_url);
                 ingredientLink.addClass('ingredient-link');
                 newData.append(sourceLink);
                 newRow.append(newData);
@@ -123,6 +125,12 @@ $(document).ready(function() {
                 item.text(currentIngredient);
                 list.append(item)
             }
+            //add link to recipe
+            var sourceLink = $('<a>');
+            sourceLink.attr('href', $(target).attr('data-url'));
+            sourceLink.attr('target', '_blank');
+            sourceLink.text('View Recipe Details');
+            ingredientDiv.append(sourceLink);
             //add close button
             var closeButton = $('<button>');
             closeButton.addClass('ingredients-close pure-button');
