@@ -68,6 +68,7 @@ $(document).ready(function() {
                 newImage.attr('src', current.image_url);
                 newImage.attr('height', '50');
                 newImage.attr('alt', title);
+                newImage.addClass('border-image');
                 //Source
                 var sourceLink = $('<a>');
                 sourceLink.attr('href', current.source_url);
