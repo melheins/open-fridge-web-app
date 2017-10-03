@@ -12,6 +12,10 @@ $(document).ready(function() {
     };
     firebase.initializeApp(config);
 
+        var provider = new firebase.auth.FacebookAuthProvider();
+
+           firebase.auth().signInWithRedirect(provider);
+
     var db = firebase.database();
 
     var ingredientDB = db.ref('/ingredients');
