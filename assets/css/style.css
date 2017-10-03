@@ -1,4 +1,5 @@
 /*** BEGIN MAIN CONTENT STYLING ****/
+
 body {
     line-height: 1.7em;
     color: #7f8c8d;
@@ -43,62 +44,77 @@ label {
 }
 
 #get-started {
-	color: white;
+    color: white;
     font-size: 45px;
     font-family: 'Racing Sans One', cursive;
     background-color: #549ccc;
 }
 
 #ingredient-list-section {
-	color: white;
+    color: white;
+}
+
+#ingredient-list {
+    list-style-type: none;
 }
 
 .ingredient {
-	letter-spacing: 2px;
+    letter-spacing: 2px;
 }
 
 .pure-menu-link {
-	color: #feb83f;
+    color: #feb83f;
 }
 
 #recipe-table {
     text-align: left;
     display: block;
-    margin-left: 654px;
+    margin-left: 515px;
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-style: italic;
 }
+
 
 /*
  * -- PURE BUTTON STYLES --
  * I want my pure-button elements to look a little different
  */
+
 .pure-button {
     background-color: #1f8dd6;
     color: #8b8683;
     border-radius: 5px;
-    text-shadow: rgba(255,255,255,.5) 0 1px 0;
+    text-shadow: rgba(255, 255, 255, .5) 0 1px 0;
     font-family: 'Shadows Into Light', cursive;
     font-weight: bold;
 
     box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
     -webkit-transition: all 0.3s linear;
-     -khtml-transition: all 0.3s linear;
-       -moz-transition: all 0.3s linear;
-         -o-transition: all 0.3s linear;
-            transition: all 0.3s linear;
-    background: rgb(238,238,238); /* Old browsers */
-    background: -moz-linear-gradient(left, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
-    background: linear-gradient(left, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
+    -khtml-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    background: rgb(238, 238, 238);
+    /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(238, 238, 238, 1)), color-stop(100%, rgba(204, 204, 204, 1)));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* IE10+ */
+    background: linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=1);
+    /* IE6-9 */
 }
 
+
 /**** BEGIN HEADER STYLING ****/
+
 .header {
     background-color: #111;
 }
@@ -144,14 +160,18 @@ label {
     margin-left: 555px;
 }
 
+
 /*** BEGIN FOOTER STYLING ***/
+
 .footer {
     background: #111;
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
+    font-family: 'Racing Sans One', cursive;
 }
+
 
 
 /*
@@ -159,6 +179,7 @@ label {
  * On tablets and other medium-sized devices, we want to customize some
  * of the mobile styles.
  */
+
 @media (min-width: 48em) {
 
     /* We increase the body font size */
@@ -177,14 +198,15 @@ label {
     }
 }
 
+
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
  * On desktops and other large devices, we want to over-ride some
  * of the mobile and tablet styles.
  */
+
 @media (min-width: 78em) {
     /* We increase the header font size even more */
-
 }
 
 @media (max-width: 600px) {
@@ -193,12 +215,14 @@ label {
     }
 }
 
+
 /***** MEL UPDATES***/
+
 .profile-menu {
     position: fixed;
     background-color: #fff;
     right: 8px;
-    width:240px;
+    width: 240px;
     z-index: 1;
 }
 
@@ -216,6 +240,7 @@ label {
     font-size: 10px;
     padding: .5em 1em;
 }
-.ingredients-close{
+
+.ingredients-close {
     margin-bottom: 100px;
 }
