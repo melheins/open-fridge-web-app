@@ -48,20 +48,52 @@
             </li>
         </ul>
     </div>
-    <div class="main-body">
-        <div>
-            <div id="ingredient-input-section">
-                <input type="text" id="ingredient-input">
-                <button id="add-ingredient" class="button pure-button">Add</button>
-                <div id="input-error-text" class="error-text"></div>
-            </div>
-            <br>
-            <br>
-            <div id="ingredient-list-section">
-                <h2>Ingredients You Have:</h2>
-                <ul id="ingredient-list">
-                </ul>
-            </div>
+</div>
+<div class="profile-menu hidden">
+    <li id="user-display"></li>
+    <ul class="pure-menu-list" id="profile-links">
+        <li class="pure-menu-item"  id="favorites-link">
+            <a href="favorites.html" class="pure-menu-link">
+                <i class="fa fa-star" aria-hidden="true"></i> Favorites</a>
+        </li>
+        <li class="pure-menu-item" id="sign-out">
+            <a href="#" class="pure-menu-link">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+        </li>
+        <li class="pure-menu-item" id="sign-in">
+            <a href="#" class="pure-menu-link" >
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign In</a>
+        </li>
+    </ul>
+    <form class=" pure-form pure-form-stacked hidden" id="login-form">
+        <fieldset>
+            <legend>Sign In</legend>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Email">
+            <span class="pure-form-message">This is a required field.</span>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password">
+        </fieldset>
+        <a href="#" class="pure-menu-link" id="sign-in-link">
+            <i class="fa fa-star" aria-hidden="true"></i> Sign In</a>
+        <a href="#" class="pure-menu-link" id="create-account-link">
+            <i class="fa fa-star" aria-hidden="true"></i> Create Account</a>
+    </form>
+</div>
+<div class="main-body">
+    <div>
+        <div id="ingredient-input-section">
+            <input type="text" id="ingredient-input">
+            <button id="add-ingredient" class="button pure-button">Add</button>
+            <div id="input-error-text" class="error-text"></div>
+        </div>
+        <br><br>
+        <div id="ingredient-list-section">
+            <h2>Ingredients You Have:</h2>
+            <ul id="ingredient-list">
+            </ul>
+        </div>
             <div>
                 <a class="pure-button" href="search-results.html">Search for Recipes</a>
             </div>
@@ -73,14 +105,20 @@
             <button id="close-ingredient-suggestion-modal" class="pure-button">No, return to search</button>
         </div>
     </div>
+    <div class="ingredient-suggestion-modal hidden modal-bg">
+       <h2>Did you mean:</h2>
+        <div id="ingredient-suggestion"></div>
+        <button id="add-ingredient-suggestion" class="pure-button">Yes, add to list</button>
+        <button id="close-ingredient-suggestion-modal" class="pure-button">No, return to search</button>
+    </div>
+</div>
     <footer class="footer">
         <div class="container ">
             <p>
                 <a href="contact-us.html" class="pure-link">CONTACT US</a> | &copy; Copyright 2017 K2VM</p>
         </div>
     </footer>
-    <script type="text/javascript " src="assets/javascript/profile-menu.js"></script>
-    <script src="assets/javascript/input.js"></script>
+    <script src="assets/javascript/unified.js"></script>
 </body>
 
 </html>

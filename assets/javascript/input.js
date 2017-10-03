@@ -1,19 +1,12 @@
 $(document).ready(function () {
 
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyANkZ57CA6LXADMNJJakfABMdHj8fR7ZuY",
-        authDomain: "open-fridge-d8ce8.firebaseapp.com",
-        databaseURL: "https://open-fridge-d8ce8.firebaseio.com",
-        projectId: "open-fridge-d8ce8",
-        storageBucket: "open-fridge-d8ce8.appspot.com",
-        messagingSenderId: "906230734866"
-    };
-    firebase.initializeApp(config);
-
-    var db = firebase.database();
-    var arrayDB = db.ref('/array');
-    var ingredientDB = db.ref('/ingredients');
+    var database = firebase.database();
+    console.log(database);
+    var user = firebase.auth().currentUser;
+    var userID = user.uid;
+    var userDB = database.ref(userID);
+    var queryDB = userDB.child('/query');
+    var ingredientDB = userDB.child('/ingredients');
     var currentList = [];
     var ingredient;
     var stopAddFunction = false;
@@ -168,6 +161,6 @@ $(document).ready(function () {
         var removeIndex = currentList.indexOf(removeItem);
         currentList.splice(removeIndex);
         ingredientDB.child(removeKey).remove();
-        db.ref('/query').set(currentList.join(","));
+        queryDB.set(currentList.join(","));
     });
 });
