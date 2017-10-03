@@ -153,9 +153,9 @@ $(document).ready(function () {
 
 
     //input
-    var ingredientDB = database.ref('users/' + userID+ '/ingredients');
-    var userDB = database.ref('users/' + userID);
-    var queryDB = database.ref('users/' + userID+ '/query');
+    ingredientDB = database.ref('users/' + userID+ '/ingredients');
+    userDB = database.ref('users/' + userID);
+    queryDB = database.ref('users/' + userID+ '/query');
     var currentList = [];
     var ingredient;
     var stopAddFunction = false;
@@ -167,8 +167,7 @@ $(document).ready(function () {
     });
 
     // Function to check the spelling of the users input
-
-    /*function spellChecker() {
+    function spellChecker(ingredient) {
         var params = {
             // Request parameters
             "text": ingredient,
@@ -177,16 +176,18 @@ $(document).ready(function () {
             "postContextText": "",
             "mkt": ""
         };
+
+        console.log(params);
+
         $.ajax({
             url: "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?" + $.param(params),
             beforeSend: function (xhrObj) {
                 // Request headers
-                xhrObj.setRequestHeader("Content-Type","application/json");
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "de4d1f4575bf4481a4930fb826e36707");
             },
             type: "GET",
             // Request body
-            data: "json",
+            data: "json"
         })
             .done(function (response) {
                 console.log(response);
@@ -204,7 +205,7 @@ $(document).ready(function () {
                     addIngredient();
                 }
             });
-    }*/
+    }
 
     // Function to add the ingredient to the firebase database
 
@@ -235,16 +236,16 @@ $(document).ready(function () {
         //If field is not empty,
         console.log(ingredient);
         console.log(currentList.indexOf(ingredient));
-        addIngredient(ingredient)
+       // addIngredient(ingredient)
 
-        /*if (typeof ingredient === 'undefined' || !ingredient) {
+        if (typeof ingredient === 'undefined' || !ingredient) {
             console.log("null");
             stopAddFunction = true;
         }
         // Call function to check spelling of user's input
         if (stopAddFunction === false) {
-            spellChecker();
-        }*/
+            spellChecker(ingredient);
+        }
     });
 
     //Om click Suggestion Modal Add Ingredient button
