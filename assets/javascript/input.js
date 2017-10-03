@@ -89,6 +89,7 @@ $(document).ready(function () {
         }
         // Call function to check spelling of user's input
         if (stopAddFunction === false) {
+            console.log("Checking Spelling....");
             spellChecker();
         }
     });
