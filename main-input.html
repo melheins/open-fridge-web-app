@@ -42,21 +42,8 @@
     </div>
 </div>
 <div class="profile-menu hidden">
-    <ul class="pure-menu-list">
-        <li class="pure-menu-item">
-            <a href="favorites.html" class="pure-menu-link">
-                <i class="fa fa-star" aria-hidden="true"></i> Favorites</a>
-        </li>
-        <li class="pure-menu-item">
-            <a href="#" class="pure-menu-link">
-                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
-        </li>
-    </ul>
-</div>
-</div>
-<div class="profile-menu hidden">
-    <li id="user-display"></li>
     <ul class="pure-menu-list" id="profile-links">
+        <li id="user-display"></li>
         <li class="pure-menu-item" id="favorites-link">
             <a href="favorites.html" class="pure-menu-link">
                 <i class="fa fa-star" aria-hidden="true"></i> Favorites</a>
@@ -116,6 +103,18 @@
             <a href="contact-us.html" class="pure-link">CONTACT US</a> | &copy; Copyright 2017 K2VM</p>
     </div>
 </footer>
+<script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyANkZ57CA6LXADMNJJakfABMdHj8fR7ZuY",
+    authDomain: "open-fridge-d8ce8.firebaseapp.com",
+    databaseURL: "https://open-fridge-d8ce8.firebaseio.com",
+    projectId: "open-fridge-d8ce8",
+    storageBucket: "open-fridge-d8ce8.appspot.com",
+    messagingSenderId: "906230734866"
+    };
+    firebase.initializeApp(config);
+</script>
 <script src="assets/javascript/unified.js"></script>
 </body>
 
