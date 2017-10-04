@@ -4,11 +4,9 @@ body {
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 13px;
-    background-image: url("../images/yellow-fridge-desktop.png");
-    background-size: cover;
     font-family: 'Shadows Into Light', cursive;
     font-weight: bold;
-    background-attachment: fixed;
+    background-color: blue;
 }
 
 .main-body {
@@ -25,7 +23,7 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+    color: #111;
 }
 
 * {
@@ -80,6 +78,10 @@ label {
 
 legend {
     font-family: 'Racing Sans One', cursive;
+}
+
+.fridge-image {
+    background-image: url("../images/yellow-fridge-mobile.png");
 }
 
 /*
@@ -216,11 +218,12 @@ legend {
     /* We increase the header font size even more */
 }
 
+/*
 @media (max-width: 600px) {
     body {
         background-image: url("../images/yellow-fridge-mobile.png");
     }
-}
+}*/
 
 
 /***** MEL UPDATES***/
@@ -231,6 +234,8 @@ legend {
     right: 8px;
     width: 240px;
     z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .modal-bg {
