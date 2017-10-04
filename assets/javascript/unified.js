@@ -14,21 +14,30 @@ $(document).ready(function () {
     }
     //Set up user-based variables
     var database = firebase.database();
+    var commentsDB = database.ref('comments');
     var authdata = firebase.auth().currentUser;
     var userID ;
     var ingredientDB;
     var userDB;
     var queryDB;
+    var userComments;
     var isAnonymous;
-    //Verify that user logged in
-    if (!authdata) {
-        //If no user, sign in Anonymously
-        firebase.auth().signInAnonymously();
-    } else {
-        //Update user info
-        updateUserData();
-        //Update ingredient list and search query with user info
-        updateList();
+    //Wait for authdata to be defined
+    var userFound = false;
+    var waiting = setInterval(waitforUser, 250);
+    function waitforUser() {
+        //check if authdata has value and search has not been run
+        if (authdata && !userFound) {
+            //Update user info
+            updateUserData();
+            //Update ingredient list and search query with user info
+            updateList();
+            userFound = true;
+            clearInterval(waiting)
+        }
+        else {
+            authdata = firebase.auth().currentUser;
+        }
     }
     //Update database refs with current user info
     function updateUserData() {
@@ -37,6 +46,7 @@ $(document).ready(function () {
         ingredientDB = database.ref('users/' + userID + '/ingredients');
         queryDB = database.ref('users/' + userID + '/query');
         userDB = database.ref('users/' + userID);
+        userComments =  database.ref('users/' + userID + '/comments')
     }
     //Listen for changes in auth state and update info
     firebase.auth().onAuthStateChanged(function (user) {
@@ -189,7 +199,6 @@ $(document).ready(function () {
             // Request body
             data: 'json'
         }).done(function (response) {
-            console.log(response);
             //Check for suggested spellings
             if (response.flaggedTokens.length > 0) {
                 //Show first suggestion in modal
@@ -225,7 +234,6 @@ $(document).ready(function () {
     //Add ingredient
     function addIngredient(ingredient) {
         if (currentList.indexOf(ingredient) < 0) {
-            console.log(ingredient);
             //Push to ingredients list
             ingredientDB.push(ingredient);
             updateList();
@@ -247,11 +255,9 @@ $(document).ready(function () {
         ingredientDB.on('child_added', function (snapshot) {
             //Get value from Firebase
             var value = snapshot.val();
-            console.log(value);
             //Push to array
             currentList.push(value);
             queryDB.set({array: currentList.join(',')});
-            console.log(currentList);
             userDB.child('/query').set({array: currentList.join(',')});
             //get name from firebase
             var key = snapshot.key;
@@ -275,7 +281,6 @@ $(document).ready(function () {
     $('ul#ingredient-list').on('click', '.remove', function () {
         //Retrieve data
         var removeKey = $(this).attr('data-key');
-        console.log(removeKey);
         //Update list in firebase and DOM
         ingredientDB.child(removeKey).remove();
         updateList();
@@ -290,8 +295,22 @@ $(document).ready(function () {
     var query = currentList.join(',');
     var startAt = 0;
     var endAt = 9;
-    //Get Results from API
-    searchResults();
+    //Run search function once variable defined
+    var ranSerach = false;
+    var waiting = setInterval(waitForQuery, 250);
+    function waitForQuery() {
+        //check if query has value and search has not been run
+        if (query && !ranSerach) {
+            searchResults();
+            ranSerach = true;
+            //stop checking
+            clearInterval(waiting);
+        }
+        else {
+            query = currentList.join(',');
+        }
+    }
+    //Get Results from API;
     function searchResults() {
         var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=' + apiKey + '&q=' + query;
         $.ajax({
@@ -300,7 +319,6 @@ $(document).ready(function () {
             url: queryURL,
             dataType: 'json'
         }).done(function (response) {
-            console.log(response);
             var recipeList = response.recipes;
             //Write to Dom
             //clear table
@@ -313,29 +331,35 @@ $(document).ready(function () {
                 //Write to DOM
                 var newRow = $('<tr>');
                 var newData = $('<td>');
-                //title
-                var title = current.title;
                 //image
                 var newImage = $('<img>');
                 newImage.attr('src', current.image_url);
                 newImage.attr('height', '50');
-                newImage.attr('alt', title);
+                newImage.attr('alt', current.title);
+                newData.append(newImage);
+                newRow.append(newData);
+                //title
+                newData = $('<td>');
+                newData.append(current.title);
+                newRow.append(newData);
                 //Source
+                newData = $('<td>');
                 var sourceLink = $('<a>');
                 sourceLink.attr('href', current.source_url);
                 sourceLink.attr('target', '_blank');
                 sourceLink.text(current.publisher);
+                newData.append(sourceLink);
+                newRow.append(newData);
                 //ingredients
+                newData = $('<td>');
                 var ingredientLink = $('<a>');
                 ingredientLink.attr('href', recipeID);
                 ingredientLink.text('Ingredients');
                 ingredientLink.attr('data-url', current.source_url);
                 ingredientLink.addClass('ingredient-link');
-                newData.append(sourceLink);
+                newData.append(ingredientLink);
                 newRow.append(newData);
                 //append
-                newData.append(newImage, title, sourceLink, ingredientLink);
-                newRow.append(newData);
                 $('#recipe-table-body').append(newRow);
             }
         });
@@ -345,7 +369,6 @@ $(document).ready(function () {
         event.preventDefault();
         var target = event.target;
         var recipeID = $(target).attr('href');
-        console.log(recipeID);
         //Get ingredients from API
         var recipeURL = 'https://gtproxy2.herokuapp.com/api/food2fork/get?&key=' + apiKey + '&rId=' + recipeID;
         $.ajax({
@@ -354,10 +377,7 @@ $(document).ready(function () {
             url: recipeURL,
             dataType: 'json'
         }).done(function (response) {
-            console.log(response);
-            console.log(recipeURL);
             var ingredientList = response.recipe.ingredients;
-            console.log(ingredientList);
             //write to dom
             //set up elements
             var ingredientDiv = $('<div>');
@@ -371,9 +391,7 @@ $(document).ready(function () {
             //Pull results from response and write list
             for (var i = 0; i < ingredientList.length; i++) {
                 var currentIngredient = ingredientList[i];
-                console.log(currentIngredient);
                 var item = $('<li>');
-                item.text(currentIngredient);
                 list.append(item)
             }
             //add link to recipe
@@ -396,5 +414,38 @@ $(document).ready(function () {
         var target = event.target;
         $(target).closest('div').remove();
     });
+
+
+    //----CONTACT US----//
+
+
+    //Submit Comment
+    $('#contact-submit').click(function () {
+        //Fetch comment from input
+        var comment = $('#contact-form').val();
+        //Set up messages
+        var errorMessage = "There doesn't seem to be anything here!";
+        var successMessage = "Thanks for your comment!";
+        //If comment is present, push to database
+        if(!isAnonymous && comment) {
+            //If logged in, store in user db and comment db
+            userComments.push(comment);
+            commentsDB.push({user: authdata.email, comment: comment});
+            //Reset Form
+            $('#contact-form').val('');
+            $('#contact-form').attr('placeholder', 'Have more to say? Bring it on!');
+            $('#contact-form').after('<p>' + successMessage + '</p>')
+        } else if (comment) {
+            //If anonymous, just store to comment db
+            commentsDB.push({user: "Anonymous", comment: comment});
+            //Reset form
+            $('#contact-form').val(" ");
+            $('#contact-form').attr('placeholder', 'Have more to say? Bring it on!');
+            $('#contact-form').after('<p>' + successMessage + '</p>')
+        } else {
+            //Display error if field empty
+            $('#contact-form').after('<p>' + errorMessage + '</p>')
+        }
+    })
 
 });
