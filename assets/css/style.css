@@ -6,7 +6,7 @@ body {
     font-size: 13px;
     font-family: 'Shadows Into Light', cursive;
     font-weight: bold;
-    background-color: blue;
+    background-color: #1a86b4;
 }
 
 .main-body {
@@ -14,6 +14,10 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1,
@@ -46,6 +50,10 @@ label {
     font-size: 45px;
     font-family: 'Racing Sans One', cursive;
     background-color: #549ccc;
+}
+
+.ingredient {
+    text-transform: capitalize;
 }
 
 #ingredient-list-section {
@@ -81,7 +89,18 @@ legend {
 }
 
 .fridge-image {
-    background-image: url("../images/yellow-fridge-mobile.png");
+    position: absolute;
+    top: 65px;
+    z-index: -100;
+}
+
+.body-text {
+    position: relative;
+    z-index: 1;
+}
+
+#image-mobile {
+    width: 50%;
 }
 
 /*
@@ -233,14 +252,14 @@ legend {
     background-color: #fff;
     right: 8px;
     width: 240px;
-    z-index: 1;
+    z-index: 2;
     padding: 10px;
     border-radius: 5px;
 }
 
 .modal-bg {
     background-color: #fff;
-    z-index: 1;
+    z-index: 3;
 }
 
 .hidden {
