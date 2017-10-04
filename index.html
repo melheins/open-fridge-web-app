@@ -38,55 +38,42 @@
             </ul><a href="index.html" class="pure-menu-heading">Open Fridge</a>
         </div>
     </div>
+    </div>
     <div class="profile-menu hidden">
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item">
+        <li id="user-display"></li>
+        <ul class="pure-menu-list" id="profile-links">
+            <li class="pure-menu-item" id="favorites-link">
                 <a href="favorites.html" class="pure-menu-link">
                 <i class="fa fa-star" aria-hidden="true"></i> Favorites</a>
             </li>
-            <li class="pure-menu-item">
+            <li class="pure-menu-item" id="sign-out">
                 <a href="#" class="pure-menu-link">
                 <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
             </li>
-        </ul>
-    </div>
-</div>
-<div class="profile-menu hidden">
-    <li id="user-display"></li>
-    <ul class="pure-menu-list" id="profile-links">
-        <li class="pure-menu-item"  id="favorites-link">
-            <a href="favorites.html" class="pure-menu-link">
-                <i class="fa fa-star" aria-hidden="true"></i> Favorites</a>
-        </li>
-        <li class="pure-menu-item" id="sign-out">
-            <a href="#" class="pure-menu-link">
-                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
-        </li>
-        <li class="pure-menu-item" id="sign-in">
-            <a href="#" class="pure-menu-link" >
+            <li class="pure-menu-item" id="sign-in">
+                <a href="#" class="pure-menu-link">
                 <i class="fa fa-sign-out" aria-hidden="true"></i> Sign In</a>
-        </li>
-        <li class="pure-menu-item" id="facebook">
-            <a href="#" class="pure-menu-link">
+            </li>
+            <li class="pure-menu-item" id="facebook">
+                <a href="#" class="pure-menu-link">
                 <i class="fa fa-facebook" aria-hidden="true"></i> Sign in with Facebook</a>
-        </li>
-    </ul>
-    <form class=" pure-form pure-form-stacked hidden" id="login-form">
-        <fieldset>
-            <legend>Sign In</legend>
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="Email">
-            <span class="pure-form-message">This is a required field.</span>
-
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="Password">
-        </fieldset>
-        <a href="#" class="pure-menu-link" id="sign-in-link">
+            </li>
+        </ul>
+        <form class=" pure-form pure-form-stacked hidden" id="login-form">
+            <fieldset>
+                <legend>Sign In</legend>
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Email">
+                <span class="pure-form-message">This is a required field.</span>
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Password">
+            </fieldset>
+            <a href="#" class="pure-menu-link" id="sign-in-link">
             <i class="fa fa-star" aria-hidden="true"></i> Sign In</a>
-        <a href="#" class="pure-menu-link" id="create-account-link">
+            <a href="#" class="pure-menu-link" id="create-account-link">
             <i class="fa fa-star" aria-hidden="true"></i> Create Account</a>
-    </form>
-</div>
+        </form>
+    </div>
     <div class="main-body">
         <a href="main-input.html" id="get-started" class="pure-button get-started-btn">GET STARTED</a>
     </div>
@@ -97,7 +84,6 @@
         </div>
     </footer>
     <script type="text/javascript" src="assets/javascript/unified.js"></script>
-    <script type="text/javascript" src="assets/javascript/input.js"></script>
 </body>
 
 </html>
