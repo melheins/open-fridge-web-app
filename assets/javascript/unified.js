@@ -30,10 +30,8 @@ $(document).ready(function () {
         if (authdata && !userFound) {
             //Update user info
             updateUserData();
-            //Update ingredient list and search query with user info
-            updateList();
+            clearInterval(waiting);
             userFound = true;
-            clearInterval(waiting)
         }
         else {
             authdata = firebase.auth().currentUser;
@@ -141,6 +139,28 @@ $(document).ready(function () {
         }
 
     });
+    //Sign in with facebook
+    $("#facebook-sign-in").on('click', function () {
+        var provider = new firebase.auth.FacebookAuthProvider();
+        console.log(provider);
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            authdata = result.user;
+            updateUserData();
+            // ...
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+    });
     //Sign Out
     $('#sign-out').click(function () {
         //Update profile display
@@ -154,6 +174,7 @@ $(document).ready(function () {
 
 
     //----INPUT----//
+
 
     //Input variables
     var currentList = [];
@@ -275,6 +296,7 @@ $(document).ready(function () {
             li.append(removeButton);
             li.append(value);
             $('#ingredient-list').append(li);
+            console.log('ran')
         });
     }
     //Remove item on click
