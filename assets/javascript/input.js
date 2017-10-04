@@ -72,7 +72,7 @@ console.log(provider)
         var credential = error.credential;
         // ...
     });
-
+});
 
     // Function to add the ingredient to the firebase database
     function addIngredient() {
