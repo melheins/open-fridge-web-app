@@ -1,5 +1,4 @@
-$(document).ready(function () {
-
+$(document).ready(function (){
     var database = firebase.database();
     console.log(database);
     var user = firebase.auth().currentUser;
@@ -54,6 +53,9 @@ $(document).ready(function () {
                 }
             });
     }
+    $("#facebook").on('click', function () {
+var provider = new firebase.auth.FacebookAuthProvider();
+console.log(provider)
     firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         var token = result.credential.accessToken;
@@ -70,7 +72,7 @@ $(document).ready(function () {
         var credential = error.credential;
         // ...
     });
-
+});
 
     // Function to add the ingredient to the firebase database
     function addIngredient() {
