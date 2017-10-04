@@ -231,6 +231,8 @@ legend {
     right: 8px;
     width: 240px;
     z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .modal-bg {
