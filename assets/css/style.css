@@ -1,4 +1,154 @@
+/*** BEGIN MAIN CONTENT STYLING ****/
+
+body {
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 13px;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    background-color: #1a86b4;
+}
+
+.main-body {
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #111;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.border-image {
+    border: 2px outset #dad4d4;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+#get-started {
+    color: #111;
+    font-size: 45px;
+    font-family: 'Racing Sans One', cursive;
+    background-color: #549ccc;
+}
+
+.ingredient {
+    text-transform: capitalize;
+}
+
+#ingredient-list-section {
+    color: white;
+}
+
+#ingredient-list,
+#user-display {
+    list-style-type: none;
+}
+
+.ingredient {
+    letter-spacing: 2px;
+}
+
+.pure-menu-link {
+    color: #feb83f;
+}
+
+#recipe-table {
+    text-align: left;
+    display: block;
+    margin-left: 246px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#login-form {
+    padding: 10px;
+}
+
+legend {
+    font-family: 'Racing Sans One', cursive;
+}
+
+.fridge-image {
+    position: fixed;
+    top: 65px;
+    left: 3px;
+    z-index: - 100;
+}
+
+.body-text {
+    position: relative;
+    z-index: 1;
+}
+
+#image-mobile {
+    width: 50%;
+    z-index: 1;
+}
+
+.pure-g {
+    font-family: 'Racing Sans One', cursive;
+}
+
+/*
+ * -- PURE BUTTON STYLES --
+ * I want my pure-button elements to look a little different
+ */
+
+.pure-button {
+    background-color: #1f8dd6;
+    color: #8b8683;
+    border-radius: 5px;
+    text-shadow: rgba(255, 255, 255, .5) 0 1px 0;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+
+    box-shadow: inset 0 0 0 1px #c9c9c9, inset 0 1px 2px rgba(255, 255, 255, 0.5), inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.3s linear;
+    -khtml-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    background: rgb(238, 238, 238);
+    /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(238, 238, 238, 1)), color-stop(100%, rgba(204, 204, 204, 1)));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* IE10+ */
+    background: linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=1);
+    /* IE6-9 */
+}
+
 /**** BEGIN HEADER STYLING ****/
+
 .header {
     background-color: #111;
 }
@@ -7,9 +157,6 @@
     padding: 0.5em;
     text-align: center;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
-}
-
-.home-menu {
     background: #111;
 }
 
@@ -23,8 +170,8 @@
 .home-menu .pure-menu-heading {
     color: white;
     font-weight: 400;
-    font-size: 120%;
-    font-family: 'Sonsie One', cursive;
+    font-size: 150%;
+    font-family: 'Racing Sans One', cursive;
 }
 
 .home-menu .pure-menu-selected a {
@@ -42,49 +189,40 @@
     color: #AECFE5;
 }
 
+.form-control {
+    width: 400px;
+    margin-left: 453px;
+}
+
+.home-menu {
+    text-align: left;
+}
+
+.home-menu ul {
+    float: right;
+}
+
+.profile-menu {
+    position: fixed;
+    background-color: #fff;
+    right: 8px;
+    width: 240px;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+    top: 57px;
+}
+
 /*** BEGIN FOOTER STYLING ***/
+
 .footer {
     background: #111;
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
-}
-
-/*** BEGIN MAIN CONTENT STYLING ****/
-body {
-    line-height: 1.7em;
-    color: #7f8c8d;
-    font-size: 13px;
-    background-image: url("../images/yellow-fridge.jpg");
-    background-size: cover;
-}
-
-.main-body {
-    margin-top: 70px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-    color: #34495e;
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
+    font-family: 'Racing Sans One', cursive;
+    z-index: 4;
 }
 
 /*
@@ -92,6 +230,7 @@ label {
  * On tablets and other medium-sized devices, we want to customize some
  * of the mobile styles.
  */
+
 @media (min-width: 48em) {
 
     /* We increase the body font size */
@@ -99,14 +238,8 @@ label {
         font-size: 16px;
     }
 
-    /* We can align the menu header to the left, but float the
-    menu items to the right. */
-    .home-menu {
-        text-align: left;
-    }
-
-    .home-menu ul {
-        float: right;
+    .profile-menu {
+        top: 69px;
     }
 }
 
@@ -115,18 +248,33 @@ label {
  * On desktops and other large devices, we want to over-ride some
  * of the mobile and tablet styles.
  */
+
 @media (min-width: 78em) {
     /* We increase the header font size even more */
-
 }
 
+/*
+@media (max-width: 600px) {
+    body {
+        background-image: url("../images/yellow-fridge-mobile.png");
+    }
+}*/
+
 /***** MEL UPDATES***/
+
 .profile-menu {
     position: fixed;
     background-color: #fff;
     right: 8px;
-    width:240px;
-    z-index: 1;
+    width: 240px;
+    z-index: 2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.modal-bg {
+    background-color: #fff;
+    z-index: 3;
 }
 
 .hidden {
@@ -135,4 +283,10 @@ label {
 
 .remove {
     margin-right: 8px;
+    font-size: 10px;
+    padding: .5em 1em;
+}
+
+.ingredients-close {
+    margin-bottom: 100px;
 }
