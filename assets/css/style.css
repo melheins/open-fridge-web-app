@@ -29,6 +29,13 @@ h6,
 label {
     color: #111;
 }
+td {
+    color: black;
+}
+ul{
+    list-style:  none;
+    text-transform: capitalize;
+}
 
 * {
     -webkit-box-sizing: border-box;
@@ -76,11 +83,12 @@ label {
 #recipe-table {
     text-align: left;
     display: block;
-    margin-left: 246px;
     color: white;
     font-family: 'Open Sans', sans-serif;
 }
-
+#recipe-table-body {
+    background-color: rgba(255,255,255, 0.3);
+}
 #login-form {
     padding: 10px;
 }
