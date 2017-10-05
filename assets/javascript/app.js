@@ -355,7 +355,7 @@ $(document).ready(function () {
             var recipeList = response.recipes;
             //Write to Dom
             //clear table
-            $('#recipe-table-body').empty();
+            $('.modal-wrapper').empty();
             //Get results based on start and end variables
             for (var i = startAt; i <= endAt; i++) {
                 //Get recipe info
@@ -411,11 +411,12 @@ $(document).ready(function () {
             url: recipeURL,
             dataType: 'json'
         }).done(function (response) {
+
             var ingredientList = response.recipe.ingredients;
             //write to dom
             //set up elements
             var ingredientDiv = $('<div>');
-            ingredientDiv.addClass('ingredient-;ist-modal modal-bg');
+            ingredientDiv.addClass('ingredient-list-modal modal-bg');
             var title = $('<h3>');
             title.text('Ingredients:');
             var list = $('<ul>');
@@ -441,7 +442,7 @@ $(document).ready(function () {
             closeButton.text('Close List');
             ingredientDiv.append(closeButton);
             //Write to Dom
-            $('.center').append(ingredientDiv);
+            $('.modal-wrapper').append(ingredientDiv);
         })
     });
     //Close ingredient list;
