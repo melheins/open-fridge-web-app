@@ -70,12 +70,12 @@ $(document).ready(function () {
         //display content based on whether there is a user signed in
         if (!isAnonymous) {
             $('#sign-in').addClass('hidden');
-            $('#facebook-sign-in').addClass('hidden');
+            $('#facebook').addClass('hidden');
             $('#user-display').text(authdata.email);
         } else {
             $('#sign-out').addClass('hidden');
             $('#favorites-link').addClass('hidden');
-            $('#facebook-sign-in').removeClass('hidden');
+            $('#facebook').removeClass('hidden');
             $('#user-display').text('Sign In to view favorites');
         }
 
@@ -137,11 +137,11 @@ $(document).ready(function () {
             $('#user-display').removeClass('hidden');
             $('#user-display').text(authdata.email);
             $('#favorites-link').removeClass('hidden');
-            $('#facebook-sign-in').addClass('hidden')
+            $('#facebook').addClass('hidden')
         }
     });
     //Sign in with facebook
-    $("#facebook-sign-in").on('click', function () {
+    $("#facebook").on('click', function () {
         //open facebook popup for login
         var errorCode;
         var provider = new firebase.auth.FacebookAuthProvider();
@@ -355,7 +355,7 @@ $(document).ready(function () {
             var recipeList = response.recipes;
             //Write to Dom
             //clear table
-            $('.modal-wrapper').empty();
+            $('#recipe-table-body').empty();
             //Get results based on start and end variables
             for (var i = startAt; i <= endAt; i++) {
                 //Get recipe info
@@ -413,12 +413,11 @@ $(document).ready(function () {
             url: recipeURL,
             dataType: 'json'
         }).done(function (response) {
-
             var ingredientList = response.recipe.ingredients;
             //write to dom
             //set up elements
             var ingredientDiv = $('<div>');
-            ingredientDiv.addClass('ingredient-list-modal modal-bg');
+            ingredientDiv.addClass('ingredient-;ist-modal modal-bg');
             var title = $('<h3>');
             title.text(name);
             var list = $('<ul>');
@@ -445,7 +444,7 @@ $(document).ready(function () {
             closeButton.text('Close List');
             ingredientDiv.append(closeButton);
             //Write to Dom
-            $('.modal-wrapper').append(ingredientDiv);
+            $('.center').append(ingredientDiv);
         })
     });
     //Close ingredient list;
