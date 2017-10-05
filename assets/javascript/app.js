@@ -252,7 +252,7 @@ $(document).ready(function () {
         //Get user input
         ingredient = $('#ingredient-suggestion').text().trim().toLowerCase();
         addIngredient(ingredient);
-        $('.ingredient-suggestion-modal').empty();
+        $('.ingredient-suggestion').empty();
         $('.ingredient-suggestion-modal').addClass('hidden');
     });
     // Close Ingredient List Modal if reject button clicked.
