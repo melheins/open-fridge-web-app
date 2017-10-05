@@ -16,7 +16,7 @@ $(document).ready(function () {
     var database = firebase.database();
     var commentsDB = database.ref('comments');
     var authdata = firebase.auth().currentUser;
-    var userID ;
+    var userID;
     var ingredientDB;
     var userDB;
     var queryDB;
@@ -25,6 +25,7 @@ $(document).ready(function () {
     //Wait for authdata to be defined
     var userFound = false;
     var waiting = setInterval(waitforUser, 250);
+
     function waitforUser() {
         //check if authdata has value and search has not been run
         if (authdata && !userFound) {
@@ -37,6 +38,7 @@ $(document).ready(function () {
             authdata = firebase.auth().currentUser;
         }
     }
+
     //Update database refs with current user info
     function updateUserData() {
         isAnonymous = authdata.isAnonymous;
@@ -44,9 +46,10 @@ $(document).ready(function () {
         ingredientDB = database.ref('users/' + userID + '/ingredients');
         queryDB = database.ref('users/' + userID + '/query');
         userDB = database.ref('users/' + userID);
-        userComments =  database.ref('users/' + userID + '/comments');
+        userComments = database.ref('users/' + userID + '/comments');
         console.log(authdata)
     }
+
     //Listen for changes in auth state and update info
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -146,14 +149,14 @@ $(document).ready(function () {
         //open facebook popup for login
         var errorCode;
         var provider = new firebase.auth.FacebookAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithPopup(provider).then(function (result) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
             var token = result.credential.accessToken;
             // The signed-in user info.
             authdata = result.user;
             updateUserData()
             // ...
-        }).catch(function(error) {
+        }).catch(function (error) {
             // Handle Errors here.
             errorCode = error.code;
             var errorMessage = error.message;
@@ -212,6 +215,7 @@ $(document).ready(function () {
             $('#add-ingredient').click();
         }
     });
+
     //Check spelling through Bing search and suggest alternatives
     function spellChecker(ingredient) {
         // Request parameters
@@ -246,11 +250,6 @@ $(document).ready(function () {
             }
         });
     }
-    //Close Ingredient List Modal if reject button clicked.
-    $('#close-ingredient-suggestion-modal').click(function () {
-        $('.ingredient-suggestion-modal').addClass('hidden');
-        $('#ingredient-suggestion').empty();
-    });
     //Add to list if suggestion accepted
     $('#add-ingredient-suggestion').click(function () {
         event.preventDefault();
@@ -265,6 +264,7 @@ $(document).ready(function () {
         $('.ingredient-suggestion-modal').addClass('hidden');
         $('#ingredient-suggestion').empty();
     });
+
     //Add ingredient
     function addIngredient(ingredient) {
         if (currentList.indexOf(ingredient) < 0) {
@@ -281,6 +281,7 @@ $(document).ready(function () {
             $("#ingredient-input").addClass('error-text')
         }
     }
+
     //Update list
     function updateList() {
         //Update List with firebase data
@@ -309,9 +310,9 @@ $(document).ready(function () {
             li.append(removeButton);
             li.append(value);
             $('#ingredient-list').append(li);
-            console.log('ran')
         });
     }
+
     //Remove item on click
     $('ul#ingredient-list').on('click', '.remove', function () {
         //Retrieve data
@@ -331,23 +332,28 @@ $(document).ready(function () {
     var startAt = 0;
     var endAt = 9;
     //Run search function once variable defined
-    var ranSerach = false;
-    var waiting = setInterval(waitForQuery, 250);
+    var ranSearch = false;
+    var queryWait = setInterval(waitForQuery, 250);
+
     function waitForQuery() {
         //check if query has value and search has not been run
-        if (query && !ranSerach) {
+        if (query && !ranSearch) {
             searchResults();
-            ranSerach = true;
+            ranSearch = true;
             //stop checking
-            clearInterval(waiting);
+            clearInterval(queryWait);
         }
         else {
             query = currentList.join(',');
+            console.log('running');
         }
     }
+
+
     //Get Results from API;
     function searchResults() {
         var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=' + apiKey + '&q=' + query;
+        console.log(queryURL);
         $.ajax({
             //parameters
             type: 'GET',
@@ -399,8 +405,9 @@ $(document).ready(function () {
             }
         });
     }
+
     //Display Ingredients
-    $(document).on('click', '.ingredient-link', function() {
+    $(document).on('click', '.ingredient-link', function () {
         event.preventDefault();
         var target = event.target;
         var recipeID = $(target).attr('href');
@@ -462,7 +469,7 @@ $(document).ready(function () {
         var errorMessage = "There doesn't seem to be anything here!";
         var successMessage = "Thanks for your comment!";
         //If comment is present, push to database
-        if(!isAnonymous && comment) {
+        if (!isAnonymous && comment) {
             //If logged in, store in user db and comment db
             userComments.push(comment);
             commentsDB.push({user: authdata.email, comment: comment});
