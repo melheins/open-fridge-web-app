@@ -252,13 +252,13 @@ $(document).ready(function () {
         //Get user input
         ingredient = $('#ingredient-suggestion').text().trim().toLowerCase();
         addIngredient(ingredient);
-        $('.ingredient-suggestion').empty();
+        $('.ingredient-suggestion').val(" ");
         $('.ingredient-suggestion-modal').addClass('hidden');
     });
     // Close Ingredient List Modal if reject button clicked.
     $('#close-ingredient-suggestion-modal').click(function () {
         $('.ingredient-suggestion-modal').addClass('hidden');
-        $('#ingredient-suggestion').empty();
+        $('#ingredient-suggestion').val();
     });
 
     //Add ingredient
@@ -413,6 +413,7 @@ $(document).ready(function () {
             url: recipeURL,
             dataType: 'json'
         }).done(function (response) {
+            $('.modal-wrapper').empty();
             var ingredientList = response.recipe.ingredients;
             //write to dom
             //set up elements
@@ -444,7 +445,7 @@ $(document).ready(function () {
             closeButton.text('Close List');
             ingredientDiv.append(closeButton);
             //Write to Dom
-            $('.center').append(ingredientDiv);
+            $('.modal-wrapper').append(ingredientDiv);
         })
     });
     //Close ingredient list;
