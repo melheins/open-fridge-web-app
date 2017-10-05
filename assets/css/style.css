@@ -92,21 +92,18 @@ legend {
 .fridge-image {
     position: absolute;
     top: 65px;
-    < < < < < < < HEAD = = = = = = =
     left: 3px;
-> > > > > > > d7a3a2cd88e72e4bc02078685d995504daf88ef9 z-index: - 100;
+    z-index: - 100;
 }
 
 .body-text {
     position: relative;
-    < < < < < < < HEAD
     z-index: 1;
 }
 
 #image-mobile {
     width: 50%;
-= = = = = = = z-index: 100;
-> > > > > > > d7a3a2cd88e72e4bc02078685d995504daf88ef9
+    z-index: 100;
 }
 
 /*
