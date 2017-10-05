@@ -444,7 +444,7 @@ $(document).ready(function () {
             closeButton.text('Close List');
             ingredientDiv.append(closeButton);
             //Write to Dom
-            $('.center').append(ingredientDiv);
+            $('.modal-wrapper').append(ingredientDiv);
         })
     });
     //Close ingredient list;
