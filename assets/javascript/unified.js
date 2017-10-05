@@ -44,7 +44,8 @@ $(document).ready(function () {
         ingredientDB = database.ref('users/' + userID + '/ingredients');
         queryDB = database.ref('users/' + userID + '/query');
         userDB = database.ref('users/' + userID);
-        userComments =  database.ref('users/' + userID + '/comments')
+        userComments =  database.ref('users/' + userID + '/comments');
+        console.log(authdata)
     }
     //Listen for changes in auth state and update info
     firebase.auth().onAuthStateChanged(function (user) {
@@ -59,7 +60,7 @@ $(document).ready(function () {
     });
 
 
-    //---PROFILE---//
+    //---PROFILE/LOGIN---//
 
 
     // Function to display and hide the profile menu when icon is clicked
@@ -70,10 +71,12 @@ $(document).ready(function () {
         //display content based on whether there is a user signed in
         if (!isAnonymous) {
             $('#sign-in').addClass('hidden');
+            $('#facebook-sign-in').addClass('hidden');
             $('#user-display').text(authdata.email);
         } else {
             $('#sign-out').addClass('hidden');
             $('#favorites-link').addClass('hidden');
+            $('#facebook-sign-in').removeClass('hidden');
             $('#user-display').text('Sign In to view favorites');
         }
 
@@ -137,22 +140,22 @@ $(document).ready(function () {
             $('#user-display').text(authdata.email);
             $('#favorites-link').removeClass('hidden');
         }
-
     });
     //Sign in with facebook
     $("#facebook-sign-in").on('click', function () {
+        //open facebook popup for login
+        var errorCode;
         var provider = new firebase.auth.FacebookAuthProvider();
-        console.log(provider);
         firebase.auth().signInWithPopup(provider).then(function(result) {
             // This gives you a Facebook Access Token. You can use it to access the Facebook API.
             var token = result.credential.accessToken;
             // The signed-in user info.
             authdata = result.user;
-            updateUserData();
+            updateUserData()
             // ...
         }).catch(function(error) {
             // Handle Errors here.
-            var errorCode = error.code;
+            errorCode = error.code;
             var errorMessage = error.message;
             // The email of the user's account used.
             var email = error.email;
@@ -160,12 +163,22 @@ $(document).ready(function () {
             var credential = error.credential;
             // ...
         });
+        if (!errorCode) {
+            $('#login-form').addClass('hidden');
+            $('#profile-links').removeClass('hidden');
+            $('#sign-in').addClass('hidden');
+            $('#sign-out').removeClass('hidden');
+            $('#user-display').removeClass('hidden');
+            $('#user-display').text(authdata.email);
+            $('#favorites-link').removeClass('hidden');
+        }
     });
     //Sign Out
     $('#sign-out').click(function () {
         //Update profile display
         firebase.auth().signOut().then(function () {
             $('#sign-in').removeClass('hidden');
+            $('#facebook-sign-in').removeClass('hidden');
             $('#sign-out').addClass('hidden');
             $('#user-display').text('Sign In to view favorites');
             $('#favorites-link').addClass('hidden');
