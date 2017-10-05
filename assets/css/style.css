@@ -64,6 +64,7 @@ label {
 #user-display {
     list-style-type: none;
 }
+
 .ingredient {
     letter-spacing: 2px;
 }
@@ -91,16 +92,24 @@ legend {
 .fridge-image {
     position: absolute;
     top: 65px;
+<<<<<<< HEAD
+=======
+    left: 3px;
+>>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
     z-index: -100;
 }
 
 .body-text {
     position: relative;
+<<<<<<< HEAD
     z-index: 1;
 }
 
 #image-mobile {
     width: 50%;
+=======
+    z-index: 100;
+>>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
 }
 
 /*
@@ -136,10 +145,9 @@ legend {
     /* IE10+ */
     background: linear-gradient(left, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
     /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=1);
     /* IE6-9 */
 }
-
 
 /**** BEGIN HEADER STYLING ****/
 
@@ -188,6 +196,24 @@ legend {
     margin-left: 555px;
 }
 
+.home-menu {
+    text-align: left;
+}
+
+.home-menu ul {
+    float: right;
+}
+
+.profile-menu {
+    position: fixed;
+    background-color: #fff;
+    right: 8px;
+    width: 240px;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 5px;
+    top: 57px;
+}
 
 /*** BEGIN FOOTER STYLING ***/
 
@@ -199,8 +225,6 @@ legend {
     text-align: center;
     font-family: 'Racing Sans One', cursive;
 }
-
-
 
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
@@ -215,17 +239,10 @@ legend {
         font-size: 16px;
     }
 
-    /* We can align the menu header to the left, but float the
-    menu items to the right. */
-    .home-menu {
-        text-align: left;
-    }
-
-    .home-menu ul {
-        float: right;
+    .profile-menu {
+        top: 69px;
     }
 }
-
 
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
@@ -244,9 +261,9 @@ legend {
     }
 }*/
 
-
 /***** MEL UPDATES***/
 
+<<<<<<< HEAD
 .profile-menu {
     position: fixed;
     background-color: #fff;
@@ -257,6 +274,8 @@ legend {
     border-radius: 5px;
 }
 
+=======
+>>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
 .modal-bg {
     background-color: #fff;
     z-index: 3;
