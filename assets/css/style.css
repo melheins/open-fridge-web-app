@@ -76,7 +76,6 @@ label {
 #recipe-table {
     text-align: left;
     display: block;
-    margin-left: 515px;
     color: white;
     font-family: 'Open Sans', sans-serif;
 }
@@ -106,7 +105,7 @@ legend {
     z-index: 100;
 }
 
-.pure-g {
+.pure-g.h2 {
     font-family: 'Racing Sans One', cursive;
 }
 
@@ -222,6 +221,7 @@ legend {
     width: 100%;
     text-align: center;
     font-family: 'Racing Sans One', cursive;
+    z-index: 4;
 }
 
 /*
