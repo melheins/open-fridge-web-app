@@ -92,24 +92,21 @@ legend {
 .fridge-image {
     position: absolute;
     top: 65px;
-<<<<<<< HEAD
-=======
+    < < < < < < < HEAD = = = = = = =
     left: 3px;
->>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
-    z-index: -100;
+> > > > > > > d7a3a2cd88e72e4bc02078685d995504daf88ef9 z-index: - 100;
 }
 
 .body-text {
     position: relative;
-<<<<<<< HEAD
+    < < < < < < < HEAD
     z-index: 1;
 }
 
 #image-mobile {
     width: 50%;
-=======
-    z-index: 100;
->>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
+= = = = = = = z-index: 100;
+> > > > > > > d7a3a2cd88e72e4bc02078685d995504daf88ef9
 }
 
 /*
@@ -263,7 +260,6 @@ legend {
 
 /***** MEL UPDATES***/
 
-<<<<<<< HEAD
 .profile-menu {
     position: fixed;
     background-color: #fff;
@@ -274,8 +270,6 @@ legend {
     border-radius: 5px;
 }
 
-=======
->>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
 .modal-bg {
     background-color: #fff;
     z-index: 3;
