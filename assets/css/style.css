@@ -283,6 +283,10 @@ legend {
 .modal-bg {
     background-color: #fff;
     z-index: 3;
+    position: fixed;
+    top: 100px;
+    width: 50%;
+    padding: 35px;
 }
 
 .hidden {
@@ -296,5 +300,4 @@ legend {
 }
 
 .ingredients-close {
-    margin-bottom: 100px;
 }

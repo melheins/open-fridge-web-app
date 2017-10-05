@@ -390,6 +390,7 @@ $(document).ready(function () {
                 ingredientLink.attr('href', recipeID);
                 ingredientLink.text('Ingredients');
                 ingredientLink.attr('data-url', current.source_url);
+                ingredientLink.attr('data-name', current.title);
                 ingredientLink.addClass('ingredient-link');
                 newData.append(ingredientLink);
                 newRow.append(newData);
@@ -403,6 +404,7 @@ $(document).ready(function () {
         event.preventDefault();
         var target = event.target;
         var recipeID = $(target).attr('href');
+        var name = $(target).attr('data-name');
         //Get ingredients from API
         var recipeURL = 'https://gtproxy2.herokuapp.com/api/food2fork/get?&key=' + apiKey + '&rId=' + recipeID;
         $.ajax({
@@ -418,11 +420,11 @@ $(document).ready(function () {
             var ingredientDiv = $('<div>');
             ingredientDiv.addClass('ingredient-list-modal modal-bg');
             var title = $('<h3>');
-            title.text('Ingredients:');
+            title.text(name);
             var list = $('<ul>');
             list.addClass('ingredient-list');
             list.text('Ingredients');
-            ingredientDiv.append(list);
+            ingredientDiv.append(title,list);
             //Pull results from response and write list
             for (var i = 0; i < ingredientList.length; i++) {
                 var currentIngredient = ingredientList[i];
@@ -436,6 +438,7 @@ $(document).ready(function () {
             sourceLink.attr('target', '_blank');
             sourceLink.text('View Recipe Details');
             ingredientDiv.append(sourceLink);
+            ingredientDiv.append($('<br>'));
             //add close button
             var closeButton = $('<button>');
             closeButton.addClass('ingredients-close pure-button');
