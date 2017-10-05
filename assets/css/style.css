@@ -76,6 +76,7 @@ label {
 #recipe-table {
     text-align: left;
     display: block;
+    margin-left: 246px;
     color: white;
     font-family: 'Open Sans', sans-serif;
 }
@@ -89,7 +90,7 @@ legend {
 }
 
 .fridge-image {
-    position: absolute;
+    position: fixed;
     top: 65px;
     left: 3px;
     z-index: - 100;
@@ -102,10 +103,10 @@ legend {
 
 #image-mobile {
     width: 50%;
-    z-index: 100;
+    z-index: 1;
 }
 
-.pure-g.h2 {
+.pure-g {
     font-family: 'Racing Sans One', cursive;
 }
 

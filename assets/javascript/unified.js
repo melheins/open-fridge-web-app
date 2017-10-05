@@ -25,6 +25,7 @@ $(document).ready(function () {
     //Wait for authdata to be defined
     var userFound = false;
     var waiting = setInterval(waitforUser, 250);
+
     function waitforUser() {
         //check if authdata has value and search has not been run
         if (authdata && !userFound) {
@@ -77,6 +78,7 @@ $(document).ready(function () {
             $('#facebook-sign-in').removeClass('hidden');
             $('#user-display').text('Sign In to view favorites');
         }
+
     });
     //Open Sign-in form
     $('#sign-in').click(function () {
@@ -328,6 +330,7 @@ $(document).ready(function () {
     //Run search function once variable defined
     var ranSearch = false;
     var queryWait = setInterval(waitForQuery, 250);
+
     function waitForQuery() {
         //check if query has value and search has not been run
         if (query && !ranSearch) {
@@ -366,6 +369,7 @@ $(document).ready(function () {
                 newImage.attr('src', current.image_url);
                 newImage.attr('height', '50');
                 newImage.attr('alt', current.title);
+                newImage.addClass('border-image');
                 newData.append(newImage);
                 newRow.append(newData);
                 //title
