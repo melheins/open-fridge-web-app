@@ -6,7 +6,7 @@ body {
     font-size: 13px;
     font-family: 'Shadows Into Light', cursive;
     font-weight: bold;
-    background-color: blue;
+    background-color: #1a86b4;
 }
 
 .main-body {
@@ -14,6 +14,10 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1,
@@ -46,6 +50,10 @@ label {
     font-size: 45px;
     font-family: 'Racing Sans One', cursive;
     background-color: #549ccc;
+}
+
+.ingredient {
+    text-transform: capitalize;
 }
 
 #ingredient-list-section {
@@ -84,13 +92,24 @@ legend {
 .fridge-image {
     position: absolute;
     top: 65px;
+<<<<<<< HEAD
+=======
     left: 3px;
+>>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
     z-index: -100;
 }
 
 .body-text {
     position: relative;
+<<<<<<< HEAD
+    z-index: 1;
+}
+
+#image-mobile {
+    width: 50%;
+=======
     z-index: 100;
+>>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
 }
 
 /*
@@ -244,9 +263,22 @@ legend {
 
 /***** MEL UPDATES***/
 
+<<<<<<< HEAD
+.profile-menu {
+    position: fixed;
+    background-color: #fff;
+    right: 8px;
+    width: 240px;
+    z-index: 2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+=======
+>>>>>>> d7a3a2cd88e72e4bc02078685d995504daf88ef9
 .modal-bg {
     background-color: #fff;
-    z-index: 1;
+    z-index: 3;
 }
 
 .hidden {
