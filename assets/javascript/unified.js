@@ -25,7 +25,6 @@ $(document).ready(function () {
     //Wait for authdata to be defined
     var userFound = false;
     var waiting = setInterval(waitforUser, 250);
-
     function waitforUser() {
         //check if authdata has value and search has not been run
         if (authdata && !userFound) {
@@ -33,12 +32,10 @@ $(document).ready(function () {
             updateUserData();
             clearInterval(waiting);
             userFound = true;
-        }
-        else {
+        } else {
             authdata = firebase.auth().currentUser;
         }
     }
-
     //Update database refs with current user info
     function updateUserData() {
         isAnonymous = authdata.isAnonymous;
@@ -47,9 +44,7 @@ $(document).ready(function () {
         queryDB = database.ref('users/' + userID + '/query');
         userDB = database.ref('users/' + userID);
         userComments = database.ref('users/' + userID + '/comments');
-        console.log(authdata)
     }
-
     //Listen for changes in auth state and update info
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -82,7 +77,6 @@ $(document).ready(function () {
             $('#facebook-sign-in').removeClass('hidden');
             $('#user-display').text('Sign In to view favorites');
         }
-
     });
     //Open Sign-in form
     $('#sign-in').click(function () {
@@ -128,7 +122,6 @@ $(document).ready(function () {
             } else if (errorCode === 'auth/invalid-email' || errorCode === 'auth/user-not-found') {
                 alert(errorMessage);
                 $('#email').after('<p>' + errorMessage + '</p>');
-
             } else {
                 console.log(errorCode)
             }
@@ -142,6 +135,7 @@ $(document).ready(function () {
             $('#user-display').removeClass('hidden');
             $('#user-display').text(authdata.email);
             $('#favorites-link').removeClass('hidden');
+            $('#facebook-sign-in').addClass('hidden')
         }
     });
     //Sign in with facebook
@@ -334,7 +328,6 @@ $(document).ready(function () {
     //Run search function once variable defined
     var ranSearch = false;
     var queryWait = setInterval(waitForQuery, 250);
-
     function waitForQuery() {
         //check if query has value and search has not been run
         if (query && !ranSearch) {
@@ -345,15 +338,11 @@ $(document).ready(function () {
         }
         else {
             query = currentList.join(',');
-            console.log('running');
         }
     }
-
-
     //Get Results from API;
     function searchResults() {
         var queryURL = 'https://gtproxy2.herokuapp.com/api/food2fork/search?key=' + apiKey + '&q=' + query;
-        console.log(queryURL);
         $.ajax({
             //parameters
             type: 'GET',
@@ -405,7 +394,6 @@ $(document).ready(function () {
             }
         });
     }
-
     //Display Ingredients
     $(document).on('click', '.ingredient-link', function () {
         event.preventDefault();
@@ -434,6 +422,7 @@ $(document).ready(function () {
             for (var i = 0; i < ingredientList.length; i++) {
                 var currentIngredient = ingredientList[i];
                 var item = $('<li>');
+                item.text(currentIngredient);
                 list.append(item)
             }
             //add link to recipe
