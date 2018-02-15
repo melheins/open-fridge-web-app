@@ -1,12 +1,12 @@
 $(document).ready(function () {
     //---SETUP---//
     var config = {
-        apiKey: 'AIzaSyANkZ57CA6LXADMNJJakfABMdHj8fR7ZuY',
-        authDomain: 'open-fridge-d8ce8.firebaseapp.com',
-        databaseURL: 'https://open-fridge-d8ce8.firebaseio.com',
-        projectId: 'open-fridge-d8ce8',
-        storageBucket: 'open-fridge-d8ce8.appspot.com',
-        messagingSenderId: '906230734866'
+        apiKey: "AIzaSyD2O5qhmQjwMzluyuN_DXhh0ClGaCMjNws",
+        authDomain: "open-fridge-8b9a8.firebaseapp.com",
+        databaseURL: "https://open-fridge-8b9a8.firebaseio.com",
+        projectId: "open-fridge-8b9a8",
+        storageBucket: "open-fridge-8b9a8.appspot.com",
+        messagingSenderId: "1039166598076"
     };
     //Initialize firebase if not already running
     if (!firebase.apps.length) {
@@ -224,10 +224,10 @@ $(document).ready(function () {
         };
         //Request info from Bing
         $.ajax({
-            url: 'https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?' + $.param(params),
+            url: 'https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/?' + $.param(params),
             beforeSend: function (xhrObj) {
                 // Request headers
-                xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', 'de4d1f4575bf4481a4930fb826e36707');
+                xhrObj.setRequestHeader('Ocp-Apim-Subscription-Key', 'ca503457436f47bba9f0a6966b7a376a');
             },
             type: 'GET',
             // Request body
@@ -323,7 +323,7 @@ $(document).ready(function () {
 
 
     //Search variables
-    var apiKey = '0477102d4a6901d3798f73c83ab84d90';
+    var apiKey = 'f3d39d43b35ceed6b734e5456f101c16';
     var query = currentList.join(',');
     var startAt = 0;
     var endAt = 9;
